@@ -1,12 +1,33 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="module" src="src/main.ts"></script>
+    <link rel="stylesheet" href="src/style.css">
+    <title>Gramax PDF</title>
+</head>
+<body>
+<div id="app">
+    <h1>Конвертация статьи в PDF</h1>
+    <div class="card">
+        <input type="text">
+        <button type="button" id="generate-btn">Сгенерировать PDF</button>
+    </div>
+    <div id="content">
+        <h1>Заголовок 1</h1>
+        <p>Это обычный текст с кириллицей.</p>
+        <h2>Заголовок 2</h2>
+        <p>Элемент списка:</p>
+        <ul>
+            <li>Элемент 1</li>
+            <li>Элемент 2</li>
+        </ul>
+        <pre><code class="language-javascript">console.log('Hello, world!');</code></pre>
+        <blockquote>
+            <p>Это заметка.</p>
+        </blockquote>
+    </div>
+</div>
+</body>
 </html>
