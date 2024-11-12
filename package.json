@@ -16,6 +16,7 @@
   "dependencies": {
     "html2pdf.js": "^0.10.2",
     "marked": "^15.0.0",
-    "pdfmake": "^0.2.15"
+    "pdfmake": "^0.2.15",
+    "puppeteer": "^23.7.1"
   }
 }
