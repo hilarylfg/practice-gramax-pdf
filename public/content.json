@@ -1,0 +1,2120 @@
+{
+    "type": "doc",
+    "content": [
+    {
+        "type": "heading",
+        "attrs": {
+            "level": 2,
+            "id": null,
+            "isCustomId": false
+        },
+        "content": [
+            {
+                "type": "text",
+                "text": "Заголовок 2"
+            }
+        ]
+    },
+    {
+        "type": "heading",
+        "attrs": {
+            "level": 3,
+            "id": null,
+            "isCustomId": false
+        },
+        "content": [
+            {
+                "type": "text",
+                "text": "Заголовок 3"
+            }
+        ]
+    },
+    {
+        "type": "heading",
+        "attrs": {
+            "level": 4,
+            "id": null,
+            "isCustomId": false
+        },
+        "content": [
+            {
+                "type": "text",
+                "text": "Заголовок 4"
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "marks": [
+                    {
+                        "type": "em"
+                    }
+                ],
+                "text": "Какой"
+            },
+            {
+                "type": "text",
+                "text": "-то "
+            },
+            {
+                "type": "text",
+                "marks": [
+                    {
+                        "type": "strong"
+                    }
+                ],
+                "text": "текст"
+            },
+            {
+                "type": "text",
+                "text": ", можно и по длиннее."
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "text": "Как, например, здесь. Тут мы должны ввести текст такой, чтобы было видно, что между абзацами больший интервал, чем между строками."
+            }
+        ]
+    },
+    {
+        "type": "bullet_list",
+        "attrs": {
+            "tight": false,
+            "containTaskList": false
+        },
+        "content": [
+            {
+                "type": "list_item",
+                "attrs": {
+                    "isTaskItem": null
+                },
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "Маркированный список первого уровня обозначается так."
+                            }
+                        ]
+                    },
+                    {
+                        "type": "bullet_list",
+                        "attrs": {
+                            "tight": false,
+                            "containTaskList": false
+                        },
+                        "content": [
+                            {
+                                "type": "list_item",
+                                "attrs": {
+                                    "isTaskItem": null
+                                },
+                                "content": [
+                                    {
+                                        "type": "paragraph",
+                                        "content": [
+                                            {
+                                                "type": "text",
+                                                "text": "Список второго уровня обозначается так."
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "bullet_list",
+                                        "attrs": {
+                                            "tight": false,
+                                            "containTaskList": false
+                                        },
+                                        "content": [
+                                            {
+                                                "type": "list_item",
+                                                "attrs": {
+                                                    "isTaskItem": null
+                                                },
+                                                "content": [
+                                                    {
+                                                        "type": "paragraph",
+                                                        "content": [
+                                                            {
+                                                                "type": "text",
+                                                                "text": "Cписок третьего уровня обозначается так"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type": "bullet_list",
+                                                        "attrs": {
+                                                            "tight": true,
+                                                            "containTaskList": false
+                                                        },
+                                                        "content": [
+                                                            {
+                                                                "type": "list_item",
+                                                                "attrs": {
+                                                                    "isTaskItem": null
+                                                                },
+                                                                "content": [
+                                                                    {
+                                                                        "type": "paragraph",
+                                                                        "content": [
+                                                                            {
+                                                                                "type": "text",
+                                                                                "text": "И так далее…"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "ordered_list",
+        "attrs": {
+            "order": 1,
+            "tight": false
+        },
+        "content": [
+            {
+                "type": "list_item",
+                "attrs": {
+                    "isTaskItem": null
+                },
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "Нумерованный список первого уровня обозначается так."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "list_item",
+                "attrs": {
+                    "isTaskItem": null
+                },
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "asdfasfdasdfsadfasdfsadf"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "ordered_list",
+                        "attrs": {
+                            "order": 1,
+                            "tight": false
+                        },
+                        "content": [
+                            {
+                                "type": "list_item",
+                                "attrs": {
+                                    "isTaskItem": null
+                                },
+                                "content": [
+                                    {
+                                        "type": "paragraph",
+                                        "content": [
+                                            {
+                                                "type": "text",
+                                                "text": "Список второго уровня обозначается так."
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "ordered_list",
+                                        "attrs": {
+                                            "order": 1,
+                                            "tight": false
+                                        },
+                                        "content": [
+                                            {
+                                                "type": "list_item",
+                                                "attrs": {
+                                                    "isTaskItem": null
+                                                },
+                                                "content": [
+                                                    {
+                                                        "type": "paragraph",
+                                                        "content": [
+                                                            {
+                                                                "type": "text",
+                                                                "text": "Список третьего уровня обозначается так"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "type": "ordered_list",
+                                                        "attrs": {
+                                                            "order": 1,
+                                                            "tight": true
+                                                        },
+                                                        "content": [
+                                                            {
+                                                                "type": "list_item",
+                                                                "attrs": {
+                                                                    "isTaskItem": null
+                                                                },
+                                                                "content": [
+                                                                    {
+                                                                        "type": "paragraph",
+                                                                        "content": [
+                                                                            {
+                                                                                "type": "text",
+                                                                                "text": "И так далее…"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "text": "Обратите внимание, что Название каталога находится в отдельной странице. Такого нет, если нужно создать DOXS только одной статьи."
+            }
+        ]
+    },
+    {
+        "type": "heading",
+        "attrs": {
+            "level": 2,
+            "id": null,
+            "isCustomId": false
+        },
+        "content": [
+            {
+                "type": "text",
+                "text": "Заголовок 2"
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "text": "Обратите внимание, что Название каталога находится в отдельной странице. Такого нет, если нужно создать DOXS только одной статьи."
+            }
+        ]
+    },
+    {
+        "type": "heading",
+        "attrs": {
+            "level": 3,
+            "id": null,
+            "isCustomId": false
+        },
+        "content": [
+            {
+                "type": "text",
+                "text": "Заголовок 3"
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "text": "Обратите внимание, что Название каталога находится в отдельной странице. Такого нет, если нужно создать DOXS только одной статьи."
+            }
+        ]
+    },
+    {
+        "type": "heading",
+        "attrs": {
+            "level": 4,
+            "id": null,
+            "isCustomId": false
+        },
+        "content": [
+            {
+                "type": "text",
+                "text": "Заголовок 4"
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "marks": [
+                    {
+                        "type": "strong"
+                    }
+                ],
+                "text": "Жирный"
+            },
+            {
+                "type": "text",
+                "text": " "
+            },
+            {
+                "type": "text",
+                "marks": [
+                    {
+                        "type": "em"
+                    }
+                ],
+                "text": "Италик"
+            },
+            {
+                "type": "text",
+                "text": " "
+            },
+            {
+                "type": "text",
+                "marks": [
+                    {
+                        "type": "link",
+                        "attrs": {
+                            "href": "https://translate.google.com/",
+                            "resourcePath": "",
+                            "hash": "",
+                            "isFile": false
+                        }
+                    }
+                ],
+                "text": "https://tran"
+            },
+            {
+                "type": "text",
+                "marks": [
+                    {
+                        "type": "link",
+                        "attrs": {
+                            "href": "https://translate.google.com/",
+                            "resourcePath": "",
+                            "hash": "",
+                            "isFile": false
+                        }
+                    },
+                    {
+                        "type": "em"
+                    },
+                    {
+                        "type": "strong"
+                    }
+                ],
+                "text": "slate.goo"
+            },
+            {
+                "type": "text",
+                "marks": [
+                    {
+                        "type": "link",
+                        "attrs": {
+                            "href": "https://translate.google.com/",
+                            "resourcePath": "",
+                            "hash": "",
+                            "isFile": false
+                        }
+                    },
+                    {
+                        "type": "em"
+                    }
+                ],
+                "text": "gl"
+            },
+            {
+                "type": "text",
+                "marks": [
+                    {
+                        "type": "link",
+                        "attrs": {
+                            "href": "https://translate.google.com/",
+                            "resourcePath": "",
+                            "hash": "",
+                            "isFile": false
+                        }
+                    },
+                    {
+                        "type": "strong"
+                    }
+                ],
+                "text": "e.com/"
+            }
+        ]
+    },
+    {
+        "type": "code_block",
+        "attrs": {
+            "language": ""
+        },
+        "content": [
+            {
+                "type": "text",
+                "text": "Блок кода\nдолжен выглядеть так\nasdfasdfad"
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "marks": [
+                    {
+                        "type": "code"
+                    }
+                ],
+                "text": "Строка кода"
+            },
+            {
+                "type": "text",
+                "text": " – так"
+            }
+        ]
+    },
+    {
+        "type": "table",
+        "content": [
+            {
+                "type": "tableRow",
+                "content": [
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "marks": [
+                                            {
+                                                "type": "link",
+                                                "attrs": {
+                                                    "href": "",
+                                                    "resourcePath": "",
+                                                    "hash": "",
+                                                    "isFile": false
+                                                }
+                                            },
+                                            {
+                                                "type": "em"
+                                            }
+                                        ],
+                                        "text": "Стол"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "marks": [
+                                            {
+                                                "type": "link",
+                                                "attrs": {
+                                                    "href": "",
+                                                    "resourcePath": "",
+                                                    "hash": "",
+                                                    "isFile": false
+                                                }
+                                            }
+                                        ],
+                                        "text": "бец 1"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Столбец 2"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Столбец 3"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Столбец 4"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": [
+                                87
+                            ]
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Столбец 5"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "tableRow",
+                "content": [
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": [
+                                87
+                            ]
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "tableRow",
+                "content": [
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": [
+                                87
+                            ]
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "tableRow",
+                "content": [
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": [
+                                87
+                            ]
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        "type": "text",
+                                        "text": "Ячейка"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "text": "Как, например, здесь. Тут мы должны ввести текст такой, чтобы было видно, что между абзацами больший интервал, чем между строками."
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "text": "Как, например, здесь. Тут мы должны ввести текст такой, чтобы было видно, что между абзацами больший интервал, чем между строками."
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "marks": [
+                    {
+                        "type": "code"
+                    }
+                ],
+                "text": "строка кода"
+            }
+        ]
+    },
+    {
+        "type": "code_block",
+        "attrs": {
+            "language": ""
+        },
+        "content": [
+            {
+                "type": "text",
+                "text": "блок кода"
+            }
+        ]
+    },
+    {
+        "type": "note",
+        "attrs": {
+            "title": "Заголовок",
+            "type": "quote",
+            "collapsed": false
+        },
+        "content": [
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Заметка"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "note",
+        "attrs": {
+            "title": "",
+            "type": "lab",
+            "collapsed": false
+        },
+        "content": [
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Заметка"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "note",
+        "attrs": {
+            "title": "",
+            "type": "tip",
+            "collapsed": false
+        },
+        "content": [
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Заметка"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "note",
+        "attrs": {
+            "title": "Заголовок",
+            "type": "note",
+            "collapsed": false
+        },
+        "content": [
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Заметка"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "note",
+        "attrs": {
+            "title": "Заголовок",
+            "type": "info",
+            "collapsed": false
+        },
+        "content": [
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Заметка"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "note",
+        "attrs": {
+            "title": "",
+            "type": "danger",
+            "collapsed": false
+        },
+        "content": [
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Заметка"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "note",
+        "attrs": {
+            "title": "",
+            "type": "hotfixes",
+            "collapsed": false
+        },
+        "content": [
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Заметка"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "note",
+        "attrs": {
+            "title": "Подробнее",
+            "type": "note",
+            "collapsed": true
+        },
+        "content": [
+            {
+                "type": "paragraph",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "фываыфа"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "horizontal_rule"
+    },
+    {
+        "type": "paragraph"
+    },
+    {
+        "type": "drawio",
+        "attrs": {
+            "src": "./export-3.svg",
+            "title": ""
+        }
+    },
+    {
+        "type": "diagrams",
+        "attrs": {
+            "src": "./export-2.mermaid",
+            "title": "",
+            "diagramName": "Mermaid"
+        }
+    },
+    {
+        "type": "diagrams",
+        "attrs": {
+            "src": "./export-3.puml",
+            "title": "",
+            "diagramName": "Plant-uml"
+        }
+    },
+    {
+        "type": "drawio",
+        "attrs": {
+            "src": "./export-4.svg",
+            "title": ""
+        }
+    },
+    {
+        "type": "diagrams",
+        "attrs": {
+            "src": "./export-4.puml",
+            "title": "",
+            "diagramName": "Plant-uml"
+        }
+    },
+    {
+        "type": "openapi",
+        "attrs": {
+            "src": "./export-2.yaml",
+            "flag": true
+        }
+    },
+    {
+        "type": "paragraph"
+    },
+    {
+        "type": "image",
+        "attrs": {
+            "src": "./export-3.png",
+            "alt": null,
+            "crop": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 100
+            },
+            "title": "Подпись",
+            "scale": null,
+            "objects": []
+        }
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "text": "→"
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "text": "—"
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "text": "--"
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "Cmd",
+                            "attributes": {
+                                "text": "Это кнопка"
+                            },
+                            "children": []
+                        }
+                    ],
+                    "text": "[cmd:Это кнопка]"
+                }
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "Cmd",
+                            "attributes": {
+                                "text": "alien"
+                            },
+                            "children": []
+                        }
+                    ],
+                    "text": "[cmd:alien]"
+                }
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "Kbd",
+                            "attributes": {
+                                "text": "Ctrl+Z"
+                            },
+                            "children": []
+                        }
+                    ],
+                    "text": "[kbd:Ctrl+Z]"
+                }
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "icon",
+                "attrs": {
+                    "code": "columns-4",
+                    "svg": null,
+                    "color": "solid"
+                }
+            },
+            {
+                "type": "text",
+                "text": " Текст"
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "Cmd",
+                            "attributes": {
+                                "text": "Кнопка",
+                                "icon": "columns-4"
+                            },
+                            "children": []
+                        }
+                    ],
+                    "text": "[cmd:Кнопка:columns-4]"
+                }
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "icon",
+                "attrs": {
+                    "code": "book-heart",
+                    "svg": null,
+                    "color": "brands"
+                }
+            }
+        ]
+    },
+    {
+        "type": "table",
+        "content": [
+            {
+                "type": "tableRow",
+                "content": [
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "image",
+                                "attrs": {
+                                    "src": "./export-4.png",
+                                    "alt": null,
+                                    "crop": {
+                                        "x": 0,
+                                        "y": 0,
+                                        "w": 100,
+                                        "h": 100
+                                    },
+                                    "title": "Подпись",
+                                    "scale": null,
+                                    "objects": []
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableHeader",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "tableRow",
+                "content": [
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "tableRow",
+                "content": [
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "tableCell",
+                        "attrs": {
+                            "colspan": 1,
+                            "rowspan": 1,
+                            "colwidth": null
+                        },
+                        "content": [
+                            {
+                                "type": "paragraph"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "Alfa",
+                            "attributes": {},
+                            "children": []
+                        }
+                    ],
+                    "text": "[alfa]"
+                }
+            },
+            {
+                "type": "text",
+                "text": " "
+            },
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "Beta",
+                            "attributes": {},
+                            "children": []
+                        }
+                    ],
+                    "text": "[beta]"
+                }
+            },
+            {
+                "type": "text",
+                "text": " "
+            },
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "Issue",
+                            "attributes": {
+                                "id": "иссуе"
+                            },
+                            "children": []
+                        }
+                    ],
+                    "text": "[issue:иссуе]"
+                }
+            },
+            {
+                "type": "text",
+                "text": " "
+            },
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "Module",
+                            "attributes": {
+                                "id": "модуль"
+                            },
+                            "children": []
+                        }
+                    ],
+                    "text": "[module:модуль]"
+                }
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "Who",
+                            "attributes": {
+                                "text": "who"
+                            },
+                            "children": []
+                        }
+                    ],
+                    "text": "[who:who]"
+                }
+            },
+            {
+                "type": "text",
+                "text": " "
+            },
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "When",
+                            "attributes": {
+                                "text": "when"
+                            },
+                            "children": []
+                        }
+                    ],
+                    "text": "[when:when]"
+                }
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "Formula",
+                            "attributes": {
+                                "content": "<p><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>L</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>r</mi><mi>h</mi><mi>o</mi><msup><mi>v</mi><mn>2</mn></msup><mi>S</mi><msub><mi>C</mi><mi>L</mi></msub></mrow><annotation encoding=\"application/x-tex\">L = \\frac{1}{2} rho v^2 S C_L</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.6833em;\"></span><span class=\"mord mathnormal\">L</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:1.1901em;vertical-align:-0.345em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8451em;\"><span style=\"top:-2.655em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">2</span></span></span></span><span style=\"top:-3.23em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width:0.04em;\"></span></span><span style=\"top:-3.394em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">1</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.345em;\"><span></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mord mathnormal\" style=\"margin-right:0.02778em;\">r</span><span class=\"mord mathnormal\">h</span><span class=\"mord mathnormal\">o</span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">v</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8141em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span></span></span></span></span><span class=\"mord mathnormal\" style=\"margin-right:0.05764em;\">S</span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.07153em;\">C</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3283em;\"><span style=\"top:-2.55em;margin-left:-0.0715em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"sizing reset-size6 size3 mtight\"><span class=\"mord mathnormal mtight\">L</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"><span></span></span></span></span></span></span></span></span></span></p>\n"
+                            },
+                            "children": []
+                        }
+                    ],
+                    "text": "$L = \\frac{1}{2} rho v^2 S C_L$"
+                }
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "text": "Формула выше не экспортируется"
+            }
+        ]
+    },
+    {
+        "type": "horizontal_rule"
+    },
+    {
+        "type": "tabs",
+        "attrs": {
+            "childAttrs": [
+                {
+                    "name": "name",
+                    "icon": "",
+                    "tag": "",
+                    "idx": 0
+                },
+                {
+                    "name": "name",
+                    "icon": "",
+                    "tag": "",
+                    "idx": 1
+                }
+            ]
+        },
+        "content": [
+            {
+                "type": "tab",
+                "attrs": {
+                    "name": "name",
+                    "icon": "",
+                    "tag": "",
+                    "idx": 0
+                },
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "Контент таба"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "tab",
+                "attrs": {
+                    "name": "name",
+                    "icon": "",
+                    "tag": "",
+                    "idx": 1
+                },
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "Контент второй вкладки"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "video",
+        "attrs": {
+            "title": "Подпись",
+            "path": "https://www.youtube.com/watch?v=UkSiywrWG3A&ab_channel=alkozaic",
+            "isLink": true
+        }
+    },
+    {
+        "type": "video",
+        "attrs": {
+            "title": "",
+            "path": "https://www.youtube.com/watch?v=UkSiywrWG3A&ab_channel=alkozaic",
+            "isLink": true
+        }
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "text",
+                "text": "Пример "
+            },
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        {
+                            "$$mdtype": "Tag",
+                            "name": "Term",
+                            "attributes": {
+                                "title": "термс",
+                                "summary": "",
+                                "url": null,
+                                "children": null
+                            },
+                            "children": []
+                        }
+                    ],
+                    "text": "[term:md:термс]"
+                }
+            },
+            {
+                "type": "text",
+                "text": "."
+            }
+        ]
+    },
+    {
+        "type": "paragraph",
+        "content": [
+            {
+                "type": "inlineMd_component",
+                "attrs": {
+                    "tag": [
+                        [
+                            {
+                                "$$mdtype": "Tag",
+                                "name": "Color",
+                                "attributes": {
+                                    "color": "#00DD11",
+                                    "isInline": true
+                                },
+                                "children": [
+                                    "text"
+                                ]
+                            }
+                        ]
+                    ],
+                    "text": "[color:#00DD11]text[/color]"
+                }
+            }
+        ]
+    },
+    {
+        "type": "snippet",
+        "attrs": {
+            "id": "vap",
+            "title": null,
+            "content": null
+        }
+    }
+]
+}
