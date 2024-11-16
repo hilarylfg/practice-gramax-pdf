@@ -4,8 +4,9 @@ export interface ASTNode {
         level?: number;
         id?: string | null;
         isCustomId?: boolean;
-        [key: string]: any;
+        href?: string;
     };
     content?: ASTNode[];
     text?: string;
+    marks?: { type: 'strong' | 'em' | 'link'; attrs?: { href?: string } }[];
 }
