@@ -4,7 +4,7 @@
     font-weight: 400;
 
     color-scheme: light dark;
-    background-color: #989898;
+    background-color: #111;
     color: black;
 
     font-synthesis: none;
@@ -21,11 +21,6 @@ body {
     min-height: 100vh;
 }
 
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
-}
-
 #app {
     max-width: 1280px;
     margin: 0 auto;
@@ -33,18 +28,7 @@ h1 {
     text-align: center;
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    padding: 2em;
-}
-
-input {
-    margin-bottom: 2em;
-}
-
-button,
-input {
+button {
     border-radius: 8px;
     border: 1px solid transparent;
     outline: none;
@@ -52,14 +36,12 @@ input {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #2a2a2a;
     cursor: pointer;
     transition: border-color 0.25s;
 }
 
-button:hover,
-input:hover
-{
+button:hover {
     border-color: #646cff;
 }
 

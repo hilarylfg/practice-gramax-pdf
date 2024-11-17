@@ -39,12 +39,7 @@ function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
             case 'table':
                 pdfContent.push({
                     table: {
-                        body: node.content?.map((row) =>
-                            row.content?.map((cell) => ({
-                                text: extractTextContent(cell),
-                                style: 'tableCell',
-                            }))
-                        ) || [],
+                        body: parseTableContent(node.content || []),
                     },
                     style: 'table',
                 });
@@ -53,7 +48,7 @@ function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
             case 'code_block':
                 pdfContent.push({
                     text: extractTextContent(node),
-                    style: 'code',
+                    style: 'codeBlock',
                 });
                 break;
 
@@ -65,10 +60,7 @@ function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
                 break;
 
             case 'text':
-                pdfContent.push({
-                    text: node.text || '',
-                    style: 'text',
-                });
+                pdfContent.push(extractTextContent(node));
                 break;
 
             case 'horizontal_rule':
@@ -80,7 +72,7 @@ function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
 
             default:
                 if (node.content) {
-                    pdfContent.push(...parseASTToPDFContent(node.content, level)); // Рекурсивная обработка
+                    pdfContent.push(...parseASTToPDFContent(node.content, level));
                 }
                 break;
         }
@@ -97,8 +89,19 @@ function parseListItem(node: ASTNode, level: number): any {
     const listItemContent = parseASTToPDFContent(node.content || [], level);
     return {
         stack: listItemContent,
-        margin: [5 * level, 5, 0, 0],
+        margin: [2 * level, 5, 0, 0],
     };
+}
+
+function parseTableContent(rows: ASTNode[]): any[][] {
+    return rows.map((row) => {
+        if (!row.content) return [];
+
+        return row.content.map((cell) => ({
+            stack: parseASTToPDFContent(cell.content || []),
+            style: 'tableCell',
+        }));
+    });
 }
 
 function extractTextContent(node: ASTNode): any {
@@ -148,7 +151,7 @@ export function generatePDF(ast: ASTNode[]): void {
             table: { margin: [0, 10, 0, 10] },
             tableHeader: { fontSize: 12, bold: true, fillColor: '#eeeeee', margin: [5, 5, 5, 5] },
             tableCell: { fontSize: 12, margin: [5, 5, 5, 5] },
-            codeBlock: { fontSize: 11, background: '#a0a0a0', margin: [0, 5, 0, 5] },
+            codeBlock: { fontSize: 12, background: '#aaa', color: '#333', margin: [0, 10, 0, 10], width: '100%' },
             quote: { fontSize: 12, italics: true, color: '#555', margin: [10, 5, 10, 5] },
             note: { fontSize: 12, bold: true, color: '#00529B', margin: [0, 5, 0, 5] },
             tip: { fontSize: 12, color: '#4CAF50', margin: [0, 5, 0, 5], bold: true },

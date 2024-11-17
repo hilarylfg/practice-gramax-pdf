@@ -5,6 +5,9 @@ export interface ASTNode {
         id?: string | null;
         isCustomId?: boolean;
         href?: string;
+        src?: string;
+        width?: number;
+        height?: number;
     };
     content?: ASTNode[];
     text?: string;
