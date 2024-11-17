@@ -122,6 +122,10 @@ function extractTextContent(node: ASTNode): any {
                         text.decoration = 'underline';
                         text.link = mark.attrs?.href || '#';
                         break;
+                    case 'code':
+                        text.background = '#aaa';
+                        text.fontSize = 11;
+                        break;
                 }
             });
         }
@@ -145,13 +149,12 @@ export function generatePDF(ast: ASTNode[]): void {
             header3: { fontSize: 18, bold: true, margin: [0, 8, 0, 4] },
             header4: { fontSize: 16, bold: true, margin: [0, 6, 0, 3] },
             paragraph: { fontSize: 12, margin: [0, 5, 0, 5], color: '#333' },
-            inlineCode: { background: '#f2f2f2', fontSize: 11 },
             unorderedList: { fontSize: 12, margin: [10, 5, 0, 5], color: '#333' },
             orderedList: { fontSize: 12, margin: [10, 5, 0, 5], color: '#333' },
             table: { margin: [0, 10, 0, 10] },
             tableHeader: { fontSize: 12, bold: true, fillColor: '#eeeeee', margin: [5, 5, 5, 5] },
             tableCell: { fontSize: 12, margin: [5, 5, 5, 5] },
-            codeBlock: { fontSize: 12, background: '#aaa', color: '#333', margin: [0, 10, 0, 10], width: '100%' },
+            codeBlock: { fontSize: 11, background: '#aaa', width: '100%', padding: 20 },
             quote: { fontSize: 12, italics: true, color: '#555', margin: [10, 5, 10, 5] },
             note: { fontSize: 12, bold: true, color: '#00529B', margin: [0, 5, 0, 5] },
             tip: { fontSize: 12, color: '#4CAF50', margin: [0, 5, 0, 5], bold: true },

@@ -11,5 +11,5 @@ export interface ASTNode {
     };
     content?: ASTNode[];
     text?: string;
-    marks?: { type: 'strong' | 'em' | 'link'; attrs?: { href?: string } }[];
+    marks?: { type: 'strong' | 'em' | 'link' | 'code'; attrs?: { href?: string } }[];
 }
