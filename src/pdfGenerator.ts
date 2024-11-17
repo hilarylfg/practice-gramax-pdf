@@ -5,165 +5,72 @@ import { ASTNode } from './types/ASTNode';
 pdfMake.vfs = vfs;
 
 function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
-    const pdfContent: any[] = [];
-
-    ast.forEach((node) => {
+    return ast.flatMap((node) => {
+        const content = node.content || [];
         switch (node.type) {
-            case 'heading': {
-                const headingLevel = node.attrs?.level || 1;
-                pdfContent.push({
-                    text: extractTextContent(node),
-                    style: headingLevel === 1 ? 'header1' : headingLevel === 2 ? 'header2' : 'header3',
-                });
-                break;
-            }
+            case 'heading':
+                return { text: extractText(node), style: `header${node.attrs?.level || 1}` };
             case 'paragraph':
-                pdfContent.push({
-                    text: extractTextContent(node),
-                    style: 'paragraph',
-                });
-                break;
-
+                return { text: extractText(node), style: 'paragraph' };
             case 'bullet_list':
-                pdfContent.push({
-                    ul: node.content?.map((item) => parseListItem(item, level + 1)) || [],
-                });
-                break;
-
+                return { ul: content.map((item) => parseListItem(item, level + 1)) };
             case 'ordered_list':
-                pdfContent.push({
-                    ol: node.content?.map((item) => parseListItem(item, level + 1)) || [],
-                });
-                break;
-
+                return { ol: content.map((item) => parseListItem(item, level + 1)) };
             case 'table':
-                pdfContent.push({
-                    table: {
-                        body: parseTableContent(node.content || []),
-                    },
-                    style: 'table',
-                });
-                break;
-
+                return { table: { body: parseTable(content) }, style: 'table' };
             case 'code_block':
-                pdfContent.push({
-                    text: extractTextContent(node),
-                    style: 'codeBlock',
-                });
-                break;
-
+                return { text: extractText(node), style: 'codeBlock' };
             case 'quote':
-                pdfContent.push({
-                    text: extractTextContent(node),
-                    style: 'quote',
-                });
-                break;
-
-            case 'text':
-                pdfContent.push(extractTextContent(node));
-                break;
-
+                return { text: extractText(node), style: 'quote' };
             case 'horizontal_rule':
-                pdfContent.push({
-                    canvas: [{ type: 'line', x1: 0, y1: 5, x2: 500, y2: 5, lineWidth: 1 }],
-                    style: 'hr',
-                });
-                break;
-
+                return { canvas: [{ type: 'line', x1: 0, y1: 5, x2: 500, y2: 5, lineWidth: 1 }], style: 'hr' };
             default:
-                if (node.content) {
-                    pdfContent.push(...parseASTToPDFContent(node.content, level));
-                }
-                break;
+                return parseASTToPDFContent(content, level);
         }
     });
-
-    return pdfContent;
 }
 
-function parseListItem(node: ASTNode, level: number): any {
-    if (node.type !== 'list_item') {
-        return parseASTToPDFContent([node], level);
-    }
+const parseListItem = (node: ASTNode, level: number) => ({
+    stack: parseASTToPDFContent(node.content || [], level),
+    margin: [2 * level, 5, 0, 0],
+});
 
-    const listItemContent = parseASTToPDFContent(node.content || [], level);
-    return {
-        stack: listItemContent,
-        margin: [2 * level, 5, 0, 0],
-    };
-}
+const parseTable = (rows: ASTNode[]) =>
+    rows.map((row) => row.content?.map((cell) => ({
+        stack: parseASTToPDFContent(cell.content || []),
+        style: 'tableCell',
+    })) || []);
 
-function parseTableContent(rows: ASTNode[]): any[][] {
-    return rows.map((row) => {
-        if (!row.content) return [];
-
-        return row.content.map((cell) => ({
-            stack: parseASTToPDFContent(cell.content || []),
-            style: 'tableCell',
-        }));
-    });
-}
-
-function extractTextContent(node: ASTNode): any {
+const extractText = (node: ASTNode): any => {
     if (node.type === 'text') {
-        let text: any = { text: node.text || '' };
-
-        if (node.marks) {
-            node.marks.forEach((mark) => {
-                switch (mark.type) {
-                    case 'strong':
-                        text.bold = true;
-                        break;
-                    case 'em':
-                        text.italics = true;
-                        break;
-                    case 'link':
-                        text.color = 'blue';
-                        text.decoration = 'underline';
-                        text.link = mark.attrs?.href || '#';
-                        break;
-                    case 'code':
-                        text.background = '#aaa';
-                        text.fontSize = 11;
-                        break;
-                }
+        const text: any = { text: node.text || '' };
+        node.marks?.forEach((mark) => {
+            if (mark.type === 'strong') text.bold = true;
+            if (mark.type === 'em') text.italics = true;
+            if (mark.type === 'link') Object.assign(text, {
+                color: 'blue',
+                decoration: 'underline',
+                link: mark.attrs?.href || '#',
             });
-        }
-
+            if (mark.type === 'code') Object.assign(text, { background: '#aaa', fontSize: 11 });
+        });
         return text;
     }
-
-    if (node.content && node.content.length > 0) {
-        return node.content.map(extractTextContent);
-    }
-
-    return '';
-}
+    return node.content?.map(extractText) || '';
+};
 
 export function generatePDF(ast: ASTNode[]): void {
-    const docDefinition: any = {
+    const docDefinition = {
         content: parseASTToPDFContent(ast),
         styles: {
             header1: { fontSize: 24, bold: true, margin: [0, 10, 0, 5] },
-            header2: { fontSize: 20, bold: true, margin: [0, 10, 0, 5] },
-            header3: { fontSize: 18, bold: true, margin: [0, 8, 0, 4] },
-            header4: { fontSize: 16, bold: true, margin: [0, 6, 0, 3] },
-            paragraph: { fontSize: 12, margin: [0, 5, 0, 5], color: '#333' },
-            unorderedList: { fontSize: 12, margin: [10, 5, 0, 5], color: '#333' },
-            orderedList: { fontSize: 12, margin: [10, 5, 0, 5], color: '#333' },
+            paragraph: { fontSize: 12, margin: [0, 5, 0, 5] },
             table: { margin: [0, 10, 0, 10] },
-            tableHeader: { fontSize: 12, bold: true, fillColor: '#eeeeee', margin: [5, 5, 5, 5] },
             tableCell: { fontSize: 12, margin: [5, 5, 5, 5] },
             codeBlock: { fontSize: 11, background: '#aaa', width: '100%', padding: 20 },
-            quote: { fontSize: 12, italics: true, color: '#555', margin: [10, 5, 10, 5] },
-            note: { fontSize: 12, bold: true, color: '#00529B', margin: [0, 5, 0, 5] },
-            tip: { fontSize: 12, color: '#4CAF50', margin: [0, 5, 0, 5], bold: true },
-            danger: { fontSize: 12, color: '#D8000C', margin: [0, 5, 0, 5], bold: true },
+            quote: { fontSize: 12, italics: true, margin: [10, 5, 10, 5] },
             hr: { margin: [0, 10, 0, 10] },
-            image: { alignment: 'center', margin: [0, 10, 0, 10] },
-        } as any,
+        },
     };
-
-    const pdfDoc = pdfMake.createPdf(docDefinition);
-    pdfDoc.download('output.pdf');
+    pdfMake.createPdf(docDefinition).download('output.pdf');
 }
