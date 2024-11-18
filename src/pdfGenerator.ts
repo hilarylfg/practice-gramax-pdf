@@ -17,9 +17,34 @@ function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
             case 'ordered_list':
                 return { ol: content.map((item) => parseListItem(item, level + 1)) };
             case 'table':
-                return { table: { body: parseTable(content) }, style: 'table' };
+                return {
+                    table: {
+                        body: parseTable(content),
+                    },
+                    style: 'table',
+                    layout: {
+                        hLineWidth: (rowIndex: number, node: any) =>
+                            rowIndex === 0 || rowIndex === node.table.body.length ? 0 : 1,
+                        vLineWidth: (colIndex: number, node: any) =>
+                            colIndex === 0 || colIndex === node.table.widths.length ? 0 : 1,
+                        hLineColor: () => '#111',
+                        vLineColor: () => '#111',
+                    },
+                };
             case 'code_block':
-                return { text: extractText(node), style: 'codeBlock' };
+                return {
+                    table: {
+                        widths: ['*'],
+                        body: [[{
+                                text: extractText(node),
+                                style: 'codeBlock',
+                                fillColor: '#aaa',
+                                margin: [20, 15, 20, 15],
+                            },
+                        ]],
+                    },
+                    layout: 'noBorders',
+                };
             case 'quote':
                 return { text: extractText(node), style: 'quote' };
             case 'horizontal_rule':
