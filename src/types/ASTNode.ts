@@ -8,6 +8,8 @@ export interface ASTNode {
         src?: string;
         width?: number;
         height?: number;
+        type?: string;
+        title?: string;
     };
     content?: ASTNode[];
     text?: string;

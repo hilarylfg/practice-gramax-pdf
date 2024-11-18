@@ -37,7 +37,7 @@ function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
                         widths: ['*'],
                         body: [[{
                                 text: extractText(node),
-                                style: 'codeBlock',
+                                fontSize: 10,
                                 fillColor: '#aaa',
                                 margin: [20, 15, 20, 15],
                             },
@@ -98,7 +98,6 @@ export function generatePDF(ast: ASTNode[]): void {
             table: { margin: [0, 10, 0, 10] },
             tableHeader: { fontSize: 12, bold: true, fillColor: '#eeeeee', margin: [5, 5, 5, 5] },
             tableCell: { fontSize: 12, margin: [5, 5, 5, 5] },
-            codeBlock: { fontSize: 11, background: '#aaa', width: '100%', padding: 20 },
             quote: { fontSize: 12, italics: true, color: '#555', margin: [10, 5, 10, 5] },
             note: { fontSize: 12, bold: true, color: '#00529B', margin: [0, 5, 0, 5] },
             tip: { fontSize: 12, color: '#4CAF50', margin: [0, 5, 0, 5], bold: true },
