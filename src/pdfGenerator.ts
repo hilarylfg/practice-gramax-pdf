@@ -1,6 +1,6 @@
 import pdfMake from 'pdfmake/build/pdfmake';
 import vfs from 'pdfmake/build/vfs_fonts';
-import { ASTNode } from './types/ASTNode';
+import {ASTNode} from './types/ASTNode';
 
 pdfMake.vfs = vfs;
 
@@ -9,13 +9,13 @@ function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
         const content = node.content || [];
         switch (node.type) {
             case 'heading':
-                return { text: extractText(node), style: `header${node.attrs?.level || 1}` };
+                return {text: extractText(node), style: `header${node.attrs?.level || 1}`};
             case 'paragraph':
-                return { text: extractText(node), style: 'paragraph' };
+                return {text: extractText(node), style: 'paragraph'};
             case 'bullet_list':
-                return { ul: content.map((item) => parseListItem(item, level + 1)) };
+                return {ul: content.map((item) => parseListItem(item, level + 1))};
             case 'ordered_list':
-                return { ol: content.map((item) => parseListItem(item, level + 1)) };
+                return {ol: content.map((item) => parseListItem(item, level + 1))};
             case 'table':
                 return {
                     table: {
@@ -36,19 +36,54 @@ function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
                     table: {
                         widths: ['*'],
                         body: [[{
-                                text: extractText(node),
-                                fontSize: 10,
-                                fillColor: '#aaa',
-                                margin: [20, 15, 20, 15],
-                            },
-                        ]],
+                            text: extractText(node),
+                            fontSize: 10,
+                            fillColor: '#aaa',
+                            margin: [20, 15, 20, 15],
+                        },]],
                     },
                     layout: 'noBorders',
                 };
-            case 'quote':
-                return { text: extractText(node), style: 'quote' };
             case 'horizontal_rule':
-                return { canvas: [{ type: 'line', x1: 0, y1: 5, x2: 500, y2: 5, lineWidth: 1 }], style: 'hr' };
+                return {canvas: [{type: 'line', x1: 0, y1: 5, x2: 500, y2: 5, lineWidth: 1}], style: 'hr'};
+            case 'note':
+                const noteType = node.attrs?.type || 'note';
+                const borderColor = {
+                    tip: '#00aaff',
+                    danger: '#ff8080',
+                    note: '#ec980c',
+                    quote: '#b3b3b3',
+                    lab: '#8f7ee7',
+                    info: '#8ca6d9',
+                    hotfixes: '#b3b3b3',
+                }[noteType] || '#aaa';
+
+                return {
+                    table: {
+                        widths: ['*'],
+                        body: [[{
+                            fillColor: '#2a2e41',
+                            stack: [
+                                {
+                                    text: node.attrs?.title || '',
+                                    style: 'noteTitle',
+                                    color: borderColor,
+                                    margin: [10, 5, 0, 0],
+                                },
+                                {
+                                    text: extractNoteText(node),
+                                    style: 'noteContent',
+                                    color: '#fff',
+                                    margin: [10, 5, 0, 10],
+                                }
+                            ],
+                            border: [true, true, true, true],
+                            borderColor: [borderColor, borderColor, borderColor, borderColor],
+                            borderWidth: [10, 10, 10, 10],
+                        }]],
+                    },
+                    margin: [0, 10, 0, 10],
+                };
             default:
                 return parseASTToPDFContent(content, level);
         }
@@ -68,7 +103,7 @@ const parseTable = (rows: ASTNode[]) =>
 
 const extractText = (node: ASTNode): any => {
     if (node.type === 'text') {
-        const text: any = { text: node.text || '' };
+        let text: any = {text: node.text || ''};
         node.marks?.forEach((mark) => {
             if (mark.type === 'strong') text.bold = true;
             if (mark.type === 'em') text.italics = true;
@@ -77,33 +112,37 @@ const extractText = (node: ASTNode): any => {
                 decoration: 'underline',
                 link: mark.attrs?.href || '#',
             });
-            if (mark.type === 'code') Object.assign(text, { background: '#aaa', fontSize: 11 });
+            if (mark.type === 'code') Object.assign(text, {background: '#aaa', fontSize: 11});
         });
         return text;
     }
     return node.content?.map(extractText) || '';
 };
 
+const extractNoteText = (node: ASTNode): string => {
+    if (node.type === 'text') {
+        return node.text || '';
+    }
+    return node.content?.map(extractNoteText).join('') || '';
+};
+
 export function generatePDF(ast: ASTNode[]): void {
     const docDefinition: any = {
         content: parseASTToPDFContent(ast),
         styles: {
-            header1: { fontSize: 24, bold: true, margin: [0, 10, 0, 5] },
-            header2: { fontSize: 20, bold: true, margin: [0, 10, 0, 5] },
-            header3: { fontSize: 18, bold: true, margin: [0, 8, 0, 4] },
-            header4: { fontSize: 16, bold: true, margin: [0, 6, 0, 3] },
-            paragraph: { fontSize: 12, margin: [0, 5, 0, 5], color: '#333' },
-            unorderedList: { fontSize: 12, margin: [10, 5, 0, 5], color: '#333' },
-            orderedList: { fontSize: 12, margin: [10, 5, 0, 5], color: '#333' },
-            table: { margin: [0, 10, 0, 10] },
-            tableHeader: { fontSize: 12, bold: true, fillColor: '#eeeeee', margin: [5, 5, 5, 5] },
-            tableCell: { fontSize: 12, margin: [5, 5, 5, 5] },
-            quote: { fontSize: 12, italics: true, color: '#555', margin: [10, 5, 10, 5] },
-            note: { fontSize: 12, bold: true, color: '#00529B', margin: [0, 5, 0, 5] },
-            tip: { fontSize: 12, color: '#4CAF50', margin: [0, 5, 0, 5], bold: true },
-            danger: { fontSize: 12, color: '#D8000C', margin: [0, 5, 0, 5], bold: true },
-            hr: { margin: [0, 10, 0, 10] },
-            image: { alignment: 'center', margin: [0, 10, 0, 10] },
+            header1: {fontSize: 24, bold: true, margin: [0, 10, 0, 5]},
+            header2: {fontSize: 20, bold: true, margin: [0, 10, 0, 5]},
+            header3: {fontSize: 18, bold: true, margin: [0, 8, 0, 4]},
+            header4: {fontSize: 16, bold: true, margin: [0, 6, 0, 3]},
+            paragraph: {fontSize: 12, margin: [0, 5, 0, 5], color: '#333'},
+            unorderedList: {fontSize: 12, margin: [10, 5, 0, 5], color: '#333'},
+            orderedList: {fontSize: 12, margin: [10, 5, 0, 5], color: '#333'},
+            table: {margin: [0, 10, 0, 10]},
+            tableHeader: {fontSize: 12, bold: true, fillColor: '#eeeeee', margin: [5, 5, 5, 5]},
+            tableCell: {fontSize: 12, margin: [5, 5, 5, 5]},
+            noteTitle: {fontSize: 14, bold: true, margin: [0, 5, 0, 5]},
+            noteContent: {fontSize: 12, color: '#333'},
+            hr: {margin: [0, 10, 0, 10]},
         } as any,
     };
 
