@@ -10,6 +10,7 @@ export interface ASTNode {
         height?: number;
         type?: string;
         title?: string;
+        path?: string;
     };
     content?: ASTNode[];
     text?: string;

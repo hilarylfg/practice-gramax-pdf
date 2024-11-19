@@ -38,7 +38,7 @@ function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
                         body: [[{
                             text: extractText(node),
                             fontSize: 10,
-                            fillColor: '#aaa',
+                            fillColor: '#ededed',
                             margin: [20, 15, 20, 15],
                         },]],
                     },
@@ -52,17 +52,25 @@ function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
                     tip: '#00aaff',
                     danger: '#ff8080',
                     note: '#ec980c',
-                    quote: '#b3b3b3',
+                    quote: '#7b7b7b',
                     lab: '#8f7ee7',
                     info: '#8ca6d9',
-                    hotfixes: '#b3b3b3',
-                }[noteType] || '#aaa';
+                    hotfixes: '#7b7b7b',
+                }[noteType] || '#7b7b7b';
+
+                const bgColor = {
+                    tip: '#ecf4f9',
+                    danger: '#ffebeb',
+                    note: '#fff6e7',
+                    lab: '#f3f0ff',
+                    info: '#e6eeff',
+                }[noteType] || '';
 
                 return {
                     table: {
                         widths: ['*'],
                         body: [[{
-                            fillColor: '#2a2e41',
+                            fillColor: bgColor,
                             stack: [
                                 {
                                     text: node.attrs?.title || '',
@@ -73,16 +81,22 @@ function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
                                 {
                                     text: extractNoteText(node),
                                     style: 'noteContent',
-                                    color: '#fff',
                                     margin: [10, 5, 0, 10],
                                 }
                             ],
-                            border: [true, true, true, true],
-                            borderColor: [borderColor, borderColor, borderColor, borderColor],
-                            borderWidth: [10, 10, 10, 10],
+                            border: [true, false, false, false],
+                            borderColor: [borderColor, 0, 0, 0],
                         }]],
                     },
                     margin: [0, 10, 0, 10],
+                };
+            case 'video':
+                return {
+                    text: 'Video',
+                    link: node.attrs?.path,
+                    color: '#007BFF',
+                    decoration: 'underline',
+                    margin: [0, 5, 0, 5],
                 };
             default:
                 return parseASTToPDFContent(content, level);
@@ -112,7 +126,7 @@ const extractText = (node: ASTNode): any => {
                 decoration: 'underline',
                 link: mark.attrs?.href || '#',
             });
-            if (mark.type === 'code') Object.assign(text, {background: '#aaa', fontSize: 11});
+            if (mark.type === 'code') Object.assign(text, {background: '#ededed', fontSize: 11});
         });
         return text;
     }
@@ -143,6 +157,8 @@ export function generatePDF(ast: ASTNode[]): void {
             noteTitle: {fontSize: 14, bold: true, margin: [0, 5, 0, 5]},
             noteContent: {fontSize: 12, color: '#333'},
             hr: {margin: [0, 10, 0, 10]},
+            inlineComponent: {fontSize: 12, bold: true, color: '#007BFF'},
+            iconStyle: {fontSize: 14, bold: true},
         } as any,
     };
 
