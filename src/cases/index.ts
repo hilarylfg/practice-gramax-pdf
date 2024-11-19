@@ -6,3 +6,4 @@ export { codeBlockCase } from './codeBlockCase';
 export { noteCase } from './noteCase';
 export { videoCase } from './videoCase';
 export { hrCase } from './hrCase';
+export { imageCase } from './imageCase';

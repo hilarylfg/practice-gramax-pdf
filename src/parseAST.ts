@@ -4,10 +4,12 @@ import {
     codeBlockCase,
     headingCase,
     hrCase,
+    imageCase,
     noteCase,
     orderedListCase,
     paragraphCase,
-    tableCase, videoCase
+    tableCase,
+    videoCase
 } from "./cases";
 
 export function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
@@ -30,7 +32,9 @@ export function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
             case 'note':
                 return noteCase(node);
             case 'video':
-                return videoCase(node)
+                return videoCase(node);
+            case 'image':
+                return imageCase(node);
             default:
                 return parseASTToPDFContent(node.content || [], level);
         }
