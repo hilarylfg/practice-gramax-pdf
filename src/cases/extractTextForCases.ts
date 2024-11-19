@@ -11,7 +11,6 @@ export const extractText = (node: ASTNode): any => {
                 decoration: 'underline',
                 link: mark.attrs?.href || '#',
             });
-            if (mark.type === 'code') Object.assign(text, {background: '#ededed', fontSize: 11});
         });
         return text;
     }
