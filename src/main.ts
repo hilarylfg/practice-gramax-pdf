@@ -1,6 +1,6 @@
-import { generatePDF } from './pdfGenerator';
+import { generatePDF } from './utils/pdfGenerator.ts';
 import { ASTNode } from '../types/ASTNode';
-import { convertImagesToBase64 } from "./cases/convertImagesToBase64";
+import { convertImagesToBase64 } from "./utils/convertImagesToBase64.ts";
 
 async function processAndGeneratePDF(ast: ASTNode[]): Promise<void> {
     await convertImagesToBase64(ast);

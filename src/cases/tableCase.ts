@@ -1,11 +1,14 @@
-import {ASTNode} from "../../types/ASTNode.ts";
-import {parseASTToPDFContent} from "../parseAST.ts";
+import { ASTNode } from "../../types/ASTNode.ts";
+import { parseASTToPDFContent } from "../utils/parseAST.ts";
 
-const parseTable = (rows: ASTNode[]) =>
-    rows.map((row) => row.content?.map((cell) => ({
-        stack: parseASTToPDFContent(cell.content || []),
-        style: 'tableCell',
-    })) || []);
+const parseTable = (rows: ASTNode[], parseContent = parseASTToPDFContent) =>
+    rows.map((row) =>
+        row.content?.map((cell) => ({
+            stack: parseContent(cell.content || []),
+            style: 'tableCell',
+            margin: [5, 5, 5, 5],
+        })) || []
+    );
 
 export function tableCase(node: ASTNode): any {
     const content = node.content || [];
@@ -22,5 +25,6 @@ export function tableCase(node: ASTNode): any {
             hLineColor: () => '#111',
             vLineColor: () => '#111',
         },
+        margin: [0, 10, 0, 10],
     };
 }

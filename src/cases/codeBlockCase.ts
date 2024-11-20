@@ -1,5 +1,5 @@
 import { ASTNode } from '../../types/ASTNode';
-import {extractText} from "./extractTextForCases.ts";
+import {extractText} from "../utils/extractTextForCases.ts";
 
 export function codeBlockCase(node: ASTNode): any {
     return {

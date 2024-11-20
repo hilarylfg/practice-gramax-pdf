@@ -1,4 +1,4 @@
-import {ASTNode} from "../../types/ASTNode.ts";
+import { ASTNode } from "../../types/ASTNode.ts";
 
 export async function convertImagesToBase64(nodes: ASTNode[]): Promise<void> {
     const processImageNode = async (node: ASTNode): Promise<void> => {

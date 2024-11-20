@@ -1149,6 +1149,135 @@
             ]
         },
         {
+            "type": "note",
+            "attrs": {
+                "title": "",
+                "type": "tip",
+                "collapsed": false
+            },
+            "content": [
+                {
+                    "type": "code_block",
+                    "attrs": {
+                        "language": ""
+                    },
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Блок кода\nдолжен выглядеть так\nasdfasdfad"
+                        }
+                    ]
+                },
+                {
+                    "type": "bullet_list",
+                    "attrs": {
+                        "tight": false,
+                        "containTaskList": false
+                    },
+                    "content": [
+                        {
+                            "type": "list_item",
+                            "attrs": {
+                                "isTaskItem": null
+                            },
+                            "content": [
+                                {
+                                    "type": "paragraph",
+                                    "content": [
+                                        {
+                                            "type": "text",
+                                            "text": "Маркированный список первого уровня обозначается так."
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "bullet_list",
+                                    "attrs": {
+                                        "tight": false,
+                                        "containTaskList": false
+                                    },
+                                    "content": [
+                                        {
+                                            "type": "list_item",
+                                            "attrs": {
+                                                "isTaskItem": null
+                                            },
+                                            "content": [
+                                                {
+                                                    "type": "code_block",
+                                                    "attrs": {
+                                                        "language": ""
+                                                    },
+                                                    "content": [
+                                                        {
+                                                            "type": "text",
+                                                            "text": "Блок кода\nдолжен выглядеть так\nasdfasdfad"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "bullet_list",
+                                                    "attrs": {
+                                                        "tight": false,
+                                                        "containTaskList": false
+                                                    },
+                                                    "content": [
+                                                        {
+                                                            "type": "list_item",
+                                                            "attrs": {
+                                                                "isTaskItem": null
+                                                            },
+                                                            "content": [
+                                                                {
+                                                                    "type": "paragraph",
+                                                                    "content": [
+                                                                        {
+                                                                            "type": "text",
+                                                                            "text": "Cписок третьего уровня обозначается так"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "type": "bullet_list",
+                                                                    "attrs": {
+                                                                        "tight": true,
+                                                                        "containTaskList": false
+                                                                    },
+                                                                    "content": [
+                                                                        {
+                                                                            "type": "list_item",
+                                                                            "attrs": {
+                                                                                "isTaskItem": null
+                                                                            },
+                                                                            "content": [
+                                                                                {
+                                                                                    "type": "paragraph",
+                                                                                    "content": [
+                                                                                        {
+                                                                                            "type": "text",
+                                                                                            "text": "И так далее…"
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "type": "horizontal_rule"
         },
         {

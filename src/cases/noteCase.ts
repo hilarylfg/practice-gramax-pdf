@@ -1,4 +1,5 @@
 import {ASTNode} from "../../types/ASTNode.ts";
+import {parseASTToPDFContent} from "../utils/parseAST.ts";
 
 const borderColors: { [key: string]: string } = {
     tip: '#00aaff',
@@ -25,10 +26,20 @@ const extractNoteText = (node: ASTNode): string => {
     return node.content?.map(extractNoteText).join('') || '';
 };
 
-export function noteCase(node: ASTNode): any {
+export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFContent): any {
     const noteType = node.attrs?.type || 'note';
     const borderColor = borderColors[noteType] || '#7b7b7b'
     const bgColor = bgColors[noteType] || '';
+
+    const contentStyle = {
+        style: 'noteContent',
+        margin: [10, 5, 10, 5],
+    };
+
+    const content = parseContent(node.content || [], level).map((item) => ({
+        ...item,
+        ...contentStyle,
+    }));
 
     return {
         table: {
@@ -42,11 +53,7 @@ export function noteCase(node: ASTNode): any {
                         color: borderColor,
                         margin: [10, 5, 0, 0],
                     },
-                    {
-                        text: extractNoteText(node),
-                        style: 'noteContent',
-                        margin: [10, 5, 0, 10],
-                    }
+                    ...content,
                 ],
                 border: [true, false, false, false],
                 borderColor: [borderColor, 0, 0, 0],

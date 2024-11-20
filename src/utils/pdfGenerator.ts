@@ -1,8 +1,8 @@
 import pdfMake from 'pdfmake/build/pdfmake';
 import vfs from 'pdfmake/build/vfs_fonts';
-import {ASTNode} from '../types/ASTNode';
+import {ASTNode} from '../../types/ASTNode.ts';
 import {parseASTToPDFContent} from "./parseAST.ts";
-import {styles} from "./styles.ts";
+import {styles} from "../styles/styles.ts";
 
 pdfMake.vfs = vfs;
 
