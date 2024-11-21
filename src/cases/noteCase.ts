@@ -17,6 +17,8 @@ const bgColors: { [key: string]: string } = {
     note: '#fff6e7',
     lab: '#f3f0ff',
     info: '#e6eeff',
+    hotfixes: '#f4f4f4',
+    quote: '#f4f4f4',
 };
 
 const extractNoteText = (node: ASTNode): string => {
