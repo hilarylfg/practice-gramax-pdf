@@ -8,7 +8,7 @@ export function errorCase(node: ASTNode): any {
                 fillColor: "#ffebeb",
                 stack: [
                     {
-                        text: `Error rendering content of type: ${node.type}` || '',
+                        text: `Не удалось обработать компонент: ${node.type}` || '',
                         style: 'noteTitle',
                         color: '#ff8080',
                         margin: [10, 5, 0, 0],

@@ -1,6 +1,13 @@
 import {ASTNode} from '../../types/ASTNode';
+import {errorCase} from "./errorCase.ts";
+
+const notFoundImage = 'data:text/html;base64,';
 
 export function imageCase(node: ASTNode): any {
+    if (node.attrs?.src?.startsWith(notFoundImage) ) {
+        return errorCase(node);
+    }
+
     return {
         stack: [
             {
