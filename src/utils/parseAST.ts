@@ -12,6 +12,7 @@ import {
     videoCase,
     errorCase
 } from "../cases";
+import {svgCase} from "../cases/svgCase.ts";
 
 const casesMap: Record<string, (node: ASTNode, level?: number) => any> = {
     heading: headingCase,
@@ -24,6 +25,7 @@ const casesMap: Record<string, (node: ASTNode, level?: number) => any> = {
     note: noteCase,
     video: videoCase,
     image: imageCase,
+    drawio: svgCase,
 };
 
 export function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {

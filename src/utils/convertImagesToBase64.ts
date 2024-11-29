@@ -15,8 +15,20 @@ export async function convertImagesToBase64(nodes: ASTNode[]): Promise<void> {
                 });
 
                 node.attrs.src = base64Image;
+                console.log(base64Image);
             } catch (error) {
                 console.error('Ошибка обработки изображения:', error);
+                node.attrs.src = undefined;
+            }
+        }
+
+        if (node.type === "drawio" && node.attrs?.src) {
+            try {
+                const svgContent = await getFileContent(node.attrs.src);
+                console.log("SVG содержимое:", svgContent);
+                node.attrs.src = svgContent;
+            } catch (error) {
+                console.error(`Ошибка при загрузке SVG: ${error}`);
                 node.attrs.src = undefined;
             }
         }
@@ -27,4 +39,16 @@ export async function convertImagesToBase64(nodes: ASTNode[]): Promise<void> {
     };
 
     await Promise.all(nodes.map(processImageNode));
+}
+
+async function getFileContent(url: string): Promise<string> {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Ошибка HTTP: ${response.status}`);
+        }
+        return await response.text();
+    } catch (error) {
+        throw new Error(`Ошибка при загрузке файла: ${error}`);
+    }
 }
