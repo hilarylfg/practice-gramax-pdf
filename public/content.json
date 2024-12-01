@@ -531,15 +531,6 @@
                                             "type": "text",
                                             "marks": [
                                                 {
-                                                    "type": "link",
-                                                    "attrs": {
-                                                        "href": "",
-                                                        "resourcePath": "",
-                                                        "hash": "",
-                                                        "isFile": false
-                                                    }
-                                                },
-                                                {
                                                     "type": "em"
                                                 }
                                             ],
@@ -547,17 +538,6 @@
                                         },
                                         {
                                             "type": "text",
-                                            "marks": [
-                                                {
-                                                    "type": "link",
-                                                    "attrs": {
-                                                        "href": "",
-                                                        "resourcePath": "",
-                                                        "hash": "",
-                                                        "isFile": false
-                                                    }
-                                                }
-                                            ],
                                             "text": "бец 1"
                                         }
                                     ]
@@ -1149,135 +1129,6 @@
             ]
         },
         {
-            "type": "note",
-            "attrs": {
-                "title": "",
-                "type": "tip",
-                "collapsed": false
-            },
-            "content": [
-                {
-                    "type": "code_block",
-                    "attrs": {
-                        "language": ""
-                    },
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": "Блок кода\nдолжен выглядеть так\nasdfasdfad"
-                        }
-                    ]
-                },
-                {
-                    "type": "bullet_list",
-                    "attrs": {
-                        "tight": false,
-                        "containTaskList": false
-                    },
-                    "content": [
-                        {
-                            "type": "list_item",
-                            "attrs": {
-                                "isTaskItem": null
-                            },
-                            "content": [
-                                {
-                                    "type": "paragraph",
-                                    "content": [
-                                        {
-                                            "type": "text",
-                                            "text": "Маркированный список первого уровня обозначается так."
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "bullet_list",
-                                    "attrs": {
-                                        "tight": false,
-                                        "containTaskList": false
-                                    },
-                                    "content": [
-                                        {
-                                            "type": "list_item",
-                                            "attrs": {
-                                                "isTaskItem": null
-                                            },
-                                            "content": [
-                                                {
-                                                    "type": "code_block",
-                                                    "attrs": {
-                                                        "language": ""
-                                                    },
-                                                    "content": [
-                                                        {
-                                                            "type": "text",
-                                                            "text": "Блок кода\nдолжен выглядеть так\nasdfasdfad"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "type": "bullet_list",
-                                                    "attrs": {
-                                                        "tight": false,
-                                                        "containTaskList": false
-                                                    },
-                                                    "content": [
-                                                        {
-                                                            "type": "list_item",
-                                                            "attrs": {
-                                                                "isTaskItem": null
-                                                            },
-                                                            "content": [
-                                                                {
-                                                                    "type": "paragraph",
-                                                                    "content": [
-                                                                        {
-                                                                            "type": "text",
-                                                                            "text": "Cписок третьего уровня обозначается так"
-                                                                        }
-                                                                    ]
-                                                                },
-                                                                {
-                                                                    "type": "bullet_list",
-                                                                    "attrs": {
-                                                                        "tight": true,
-                                                                        "containTaskList": false
-                                                                    },
-                                                                    "content": [
-                                                                        {
-                                                                            "type": "list_item",
-                                                                            "attrs": {
-                                                                                "isTaskItem": null
-                                                                            },
-                                                                            "content": [
-                                                                                {
-                                                                                    "type": "paragraph",
-                                                                                    "content": [
-                                                                                        {
-                                                                                            "type": "text",
-                                                                                            "text": "И так далее…"
-                                                                                        }
-                                                                                    ]
-                                                                                }
-                                                                            ]
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "type": "horizontal_rule"
         },
         {
@@ -1438,6 +1289,13 @@
             ]
         },
         {
+            "type": "drawio",
+            "attrs": {
+                "src": "./zagolovok-2.svg",
+                "title": ""
+            }
+        },
+        {
             "type": "paragraph",
             "content": [
                 {
@@ -1500,7 +1358,9 @@
                             "attrs": {
                                 "colspan": 1,
                                 "rowspan": 1,
-                                "colwidth": null
+                                "colwidth": [
+                                    240
+                                ]
                             },
                             "content": [
                                 {
@@ -1526,7 +1386,9 @@
                             "attrs": {
                                 "colspan": 1,
                                 "rowspan": 1,
-                                "colwidth": null
+                                "colwidth": [
+                                    49
+                                ]
                             },
                             "content": [
                                 {
@@ -1552,7 +1414,9 @@
                             "attrs": {
                                 "colspan": 1,
                                 "rowspan": 1,
-                                "colwidth": null
+                                "colwidth": [
+                                    25
+                                ]
                             },
                             "content": [
                                 {
@@ -1661,7 +1525,24 @@
                             "attrs": {
                                 "colspan": 1,
                                 "rowspan": 1,
-                                "colwidth": null
+                                "colwidth": [
+                                    240
+                                ]
+                            },
+                            "content": [
+                                {
+                                    "type": "paragraph"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "tableCell",
+                            "attrs": {
+                                "colspan": 1,
+                                "rowspan": 1,
+                                "colwidth": [
+                                    49
+                                ]
                             },
                             "content": [
                                 {
@@ -1687,20 +1568,9 @@
                             "attrs": {
                                 "colspan": 1,
                                 "rowspan": 1,
-                                "colwidth": null
-                            },
-                            "content": [
-                                {
-                                    "type": "paragraph"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "tableCell",
-                            "attrs": {
-                                "colspan": 1,
-                                "rowspan": 1,
-                                "colwidth": null
+                                "colwidth": [
+                                    25
+                                ]
                             },
                             "content": [
                                 {
@@ -1809,7 +1679,24 @@
                             "attrs": {
                                 "colspan": 1,
                                 "rowspan": 1,
-                                "colwidth": null
+                                "colwidth": [
+                                    240
+                                ]
+                            },
+                            "content": [
+                                {
+                                    "type": "paragraph"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "tableCell",
+                            "attrs": {
+                                "colspan": 1,
+                                "rowspan": 1,
+                                "colwidth": [
+                                    49
+                                ]
                             },
                             "content": [
                                 {
@@ -1835,20 +1722,9 @@
                             "attrs": {
                                 "colspan": 1,
                                 "rowspan": 1,
-                                "colwidth": null
-                            },
-                            "content": [
-                                {
-                                    "type": "paragraph"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "tableCell",
-                            "attrs": {
-                                "colspan": 1,
-                                "rowspan": 1,
-                                "colwidth": null
+                                "colwidth": [
+                                    25
+                                ]
                             },
                             "content": [
                                 {

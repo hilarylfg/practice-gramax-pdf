@@ -13,15 +13,10 @@ export const extractText = (node: ASTNode): any => {
             });
             if (mark.type === 'code') {
                 Object.assign(text, {
-                    table: {
-                        body: [[{
-                            text: extractText(text.text),
-                            fontSize: 10,
-                            fillColor: '#ededed',
-                            margin: [24, 20, 24, 20],
-                        }]],
-                    },
-                    layout: 'noBorders',
+                    background: '#ededed',
+                    fontSize: 10,
+                    margin: [0, 10, 0, 10],
+                    font: 'Monospace',
                 });
             }
         });
