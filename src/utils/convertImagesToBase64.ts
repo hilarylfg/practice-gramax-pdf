@@ -15,7 +15,6 @@ export async function convertImagesToBase64(nodes: ASTNode[]): Promise<void> {
                 });
 
                 node.attrs.src = base64Image;
-                console.log(base64Image);
             } catch (error) {
                 console.error('Ошибка обработки изображения:', error);
                 node.attrs.src = undefined;
@@ -25,7 +24,6 @@ export async function convertImagesToBase64(nodes: ASTNode[]): Promise<void> {
         if (node.type === "drawio" && node.attrs?.src) {
             try {
                 const svgContent = await getFileContent(node.attrs.src);
-                console.log("SVG содержимое:", svgContent);
                 node.attrs.src = svgContent;
             } catch (error) {
                 console.error(`Ошибка при загрузке SVG: ${error}`);

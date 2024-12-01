@@ -1,4 +1,4 @@
-import {ASTNode} from "../../types/ASTNode.ts";
+import {ASTNode} from "../../../types/ASTNode.ts";
 
 export const extractText = (node: ASTNode): any => {
     if (node.type === 'text') {
@@ -11,7 +11,19 @@ export const extractText = (node: ASTNode): any => {
                 decoration: 'underline',
                 link: mark.attrs?.href || '#',
             });
-            if (mark.type === 'code') Object.assign(text, {background: '#ededed', fontSize: 11});
+            if (mark.type === 'code') {
+                Object.assign(text, {
+                    table: {
+                        body: [[{
+                            text: extractText(text.text),
+                            fontSize: 10,
+                            fillColor: '#ededed',
+                            margin: [24, 20, 24, 20],
+                        }]],
+                    },
+                    layout: 'noBorders',
+                });
+            }
         });
         return text;
     }

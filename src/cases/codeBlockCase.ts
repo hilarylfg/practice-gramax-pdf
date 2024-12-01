@@ -1,5 +1,5 @@
 import { ASTNode } from '../../types/ASTNode';
-import {extractText} from "../utils/extractTextForCases.ts";
+import {extractText} from "./utils/extractTextForCases.ts";
 
 export function codeBlockCase(node: ASTNode): any {
     return {
@@ -9,7 +9,7 @@ export function codeBlockCase(node: ASTNode): any {
                 text: extractText(node),
                 fontSize: 10,
                 fillColor: '#ededed',
-                margin: [20, 15, 20, 15],
+                margin: [24, 20, 24, 20],
             },]],
         },
         layout: 'noBorders',
