@@ -5,6 +5,8 @@ export function inlineMdComponentCase(node: ASTNode): any {
         return { text: node.attrs?.text || '', style: 'paragraph' };
     }
 
+
+
     const tag = node.attrs.tag[0];
 
     const attributes = tag.attributes || {};
