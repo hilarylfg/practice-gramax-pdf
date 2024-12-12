@@ -13,12 +13,12 @@ export function imageCase(node: ASTNode): any {
             {
                 image: node.attrs?.src,
                 width: 200,
-                margin: [0, 10, 0, 0],
+                margin: [0, 5, 0, 5],
                 alignment: 'center',
             },
             {
                 text: node.attrs?.title || '',
-                margin: [0, 5, 0, 5],
+                margin: [0, 0, 0, 5],
                 alignment: 'center',
             },
         ],

@@ -2,6 +2,51 @@
   "type": "doc",
   "content": [
     {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "Пример "
+        },
+        {
+          "type": "inlineMd_component",
+          "attrs": {
+            "tag": [
+              {
+                "$$mdtype": "Tag",
+                "name": "Alfa",
+                "attributes": {},
+                "children": []
+              }
+            ],
+            "text": "[alfa]"
+          }
+        },
+        {
+          "type": "text",
+          "text": " и "
+        },
+        {
+          "type": "inlineMd_component",
+          "attrs": {
+            "tag": [
+              {
+                "$$mdtype": "Tag",
+                "name": "Beta",
+                "attributes": {},
+                "children": []
+              }
+            ],
+            "text": "[beta]"
+          }
+        },
+        {
+          "type": "text",
+          "text": "."
+        }
+      ]
+    },
+    {
       "type": "heading",
       "content": [
         {

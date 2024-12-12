@@ -12,6 +12,6 @@ export function svgCase(node: ASTNode): any {
         svg: node.attrs?.src,
         width: 200,
         alignment: 'center',
-        margin: [0, 10, 0, 10],
+        margin: [0, 5, 0, 5],
     };
 }

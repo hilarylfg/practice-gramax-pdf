@@ -13,5 +13,6 @@ export function codeBlockCase(node: ASTNode): any {
             },]],
         },
         layout: 'noBorders',
+        margin: [0, 5, 0, 5],
     };
 }
