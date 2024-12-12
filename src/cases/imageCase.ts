@@ -12,15 +12,16 @@ export function imageCase(node: ASTNode): any {
         stack: [
             {
                 image: node.attrs?.src,
-                width: 200,
-                margin: [0, 5, 0, 5],
-                alignment: 'center',
+                width: 400,
+                margin: [0, 0, 0, 8],
             },
             {
                 text: node.attrs?.title || '',
-                margin: [0, 0, 0, 5],
-                alignment: 'center',
+                margin: [0, -4, 0, 8],
+                fontSize: 13,
+                italics: true,
             },
         ],
+        alignment: 'center',
     }
 }

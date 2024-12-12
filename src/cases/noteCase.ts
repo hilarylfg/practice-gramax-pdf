@@ -86,6 +86,5 @@ export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFC
                 borderColor: [borderColor, 0, 0, 0],
             }]],
         },
-        margin: [0, 10, 0, 10],
     };
 }

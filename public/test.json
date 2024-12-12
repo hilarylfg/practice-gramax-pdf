@@ -2,51 +2,6 @@
   "type": "doc",
   "content": [
     {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "text": "Пример "
-        },
-        {
-          "type": "inlineMd_component",
-          "attrs": {
-            "tag": [
-              {
-                "$$mdtype": "Tag",
-                "name": "Alfa",
-                "attributes": {},
-                "children": []
-              }
-            ],
-            "text": "[alfa]"
-          }
-        },
-        {
-          "type": "text",
-          "text": " и "
-        },
-        {
-          "type": "inlineMd_component",
-          "attrs": {
-            "tag": [
-              {
-                "$$mdtype": "Tag",
-                "name": "Beta",
-                "attributes": {},
-                "children": []
-              }
-            ],
-            "text": "[beta]"
-          }
-        },
-        {
-          "type": "text",
-          "text": "."
-        }
-      ]
-    },
-    {
       "type": "heading",
       "content": [
         {
@@ -95,6 +50,35 @@
           "text": "Еще один текст после изображения."
         }
       ]
+    },
+    {
+      "type": "horizontal_rule"
+    },
+    {
+      "type": "note",
+      "attrs": {
+        "title": "",
+        "type": "hotfixes",
+        "collapsed": false
+      },
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Заметка"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "drawio",
+      "attrs": {
+        "src": "./export-23.svg",
+        "title": ""
+      }
     }
   ]
 }

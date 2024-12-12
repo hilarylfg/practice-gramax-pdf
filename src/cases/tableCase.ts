@@ -25,6 +25,5 @@ export function tableCase(node: ASTNode): any {
             hLineColor: () => '#111',
             vLineColor: () => '#111',
         },
-        margin: [0, 10, 0, 10],
     };
 }

@@ -8,9 +8,15 @@ export function videoCase(node: ASTNode): any {
                 link: node.attrs?.path,
                 color: '#007BFF',
                 decoration: 'underline',
+                margin: [0, 0, 0, 8],
             },
-            {text: node.attrs?.title || '', margin: [0, 0, 0, 5]},
+            {
+                text: node.attrs?.title || '',
+                margin: [0, -4, 0, 8],
+                fontSize: 13,
+                italics: true,
+            },
         ],
-        margin: [0, 5, 0, 5],
+        alignment: 'center'
     }
 }

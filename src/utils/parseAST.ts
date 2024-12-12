@@ -1,4 +1,4 @@
-import {ASTNode} from "../../types/ASTNode.ts";
+import { ASTNode } from "../../types/ASTNode.ts";
 import {
     bulletListCase,
     codeBlockCase,
@@ -10,9 +10,10 @@ import {
     paragraphCase,
     tableCase,
     videoCase,
-    errorCase
+    errorCase,
+    svgCase,
 } from "../cases";
-import {svgCase} from "../cases/svgCase.ts";
+import {addMargin} from "../cases/utils/addMargin.ts";
 
 const casesMap: Record<string, (node: ASTNode, level?: number) => any> = {
     heading: headingCase,
@@ -29,10 +30,23 @@ const casesMap: Record<string, (node: ASTNode, level?: number) => any> = {
 };
 
 export function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
+    let prevType: string | null = null;
+
     return ast.flatMap((node) => {
         try {
             const caseHandler = casesMap[node.type];
-            if (caseHandler) return caseHandler(node, level);
+            if (caseHandler) {
+                const content = caseHandler(node, level);
+                const margin = addMargin(prevType, node.type, node);
+
+                if (margin) {
+                    console.log(`[${prevType}] → [${node.type}]: Adding margin ${margin.margin[1]}px`);
+                }
+
+                prevType = node.type;
+                return margin ? [margin, content] : [content];
+            }
+
             return parseASTToPDFContent(node.content || [], level);
         } catch (error) {
             console.error(`Error rendering node of type '${node.type}':`, error);
