@@ -39,10 +39,6 @@ export function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
                 const content = caseHandler(node, level);
                 const margin = addMargin(prevType, node.type, node);
 
-                if (margin) {
-                    console.log(`[${prevType}] → [${node.type}]: Adding margin ${margin.margin[1]}px`);
-                }
-
                 prevType = node.type;
                 return margin ? [margin, content] : [content];
             }

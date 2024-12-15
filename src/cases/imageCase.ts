@@ -18,7 +18,7 @@ export function imageCase(node: ASTNode): any {
             {
                 text: node.attrs?.title || '',
                 margin: [0, -4, 0, 8],
-                fontSize: 13,
+                fontSize: 12,
                 italics: true,
             },
         ],

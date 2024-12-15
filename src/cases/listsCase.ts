@@ -8,7 +8,7 @@ const parseListItem = (node: ASTNode, level: number): any => {
 
     return {
         stack: parseASTToPDFContent(node.content || [], level),
-        margin: [2 * level, 6.4, 0, 0],
+        margin: [2 * level, 5, 0, 0],
     };
 };
 

@@ -47,17 +47,12 @@ export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFC
 
     if (node.attrs?.title === "Подробнее" && 'chevron-down') icon = 'chevron-down';
 
-    const contentStyle = {
-        style: 'noteContent',
-    };
-
     const content = parseContent(node.content || [], level).map((item) => ({
         ...item,
-        ...contentStyle,
     }));
 
     const titleOrContent = node.attrs?.title
-        ? { text: node.attrs?.title, style: 'noteTitle', color: borderColor }
+        ? { text: node.attrs?.title, bold: true, color: borderColor }
         : content[0];
 
     return {

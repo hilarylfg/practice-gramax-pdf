@@ -1,18 +1,27 @@
 import pdfMake from 'pdfmake/build/pdfmake';
-import vfs from 'pdfmake/build/vfs_fonts';
 import {ASTNode} from '../../types/ASTNode.ts';
 import {parseASTToPDFContent} from "./parseAST.ts";
 import {styles} from "../styles/styles.ts";
+import {vfs} from "../fonts/vfs_fonts.ts";
 
 pdfMake.vfs = vfs;
 
 pdfMake.fonts = {
     Roboto: {
-        normal: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Regular.ttf',
-        bold: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Medium.ttf',
-        italics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Italic.ttf',
-        bolditalics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-MediumItalic.ttf',
+        normal: 'Roboto-Light.ttf',
+        bold: 'Roboto-Medium.ttf',
+        italics: 'Roboto-LightItalic.ttf',
+        bolditalics: 'Roboto-Italic.ttf',
     },
+    RobotoRegular: {
+        normal: 'Roboto-Regular.ttf',
+    },
+    RobotoMono: {
+        normal: 'RobotoMono-Thin.ttf',
+    },
+    Conolas: {
+        normal: 'Conolas.ttf',
+    }
 };
 
 export function generatePDF(ast: ASTNode[]): void {

@@ -36,7 +36,7 @@ export function errorCase(node: ASTNode): any {
                                     },
                                     {
                                         text: `Не удалось обработать компонент: ${titleErrors[node.type] || node.type}`,
-                                        style: 'noteTitle',
+                                        bold: true,
                                         color: "#ba1c1c",
                                         margin: [8, 0, 0, 0],
                                     },

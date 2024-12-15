@@ -10,6 +10,8 @@ export function codeBlockCase(node: ASTNode): any {
                 fontSize: 10,
                 fillColor: '#ededed',
                 margin: [24, 20, 24, 20],
+                font: 'Conolas',
+                color: '#111111'
             },]],
         },
         layout: 'noBorders',

@@ -5,7 +5,6 @@ import { inlineMdComponentCase } from "./inlineMdComponentCase.ts";
 export function paragraphCase(node: ASTNode): any {
     const content = (node.content || []).map((item) => {
         if (item.type === "inlineMd_component") {
-            console.log('inlineMd_component', item);
             return inlineMdComponentCase(item);
         }
         if (item.type === 'text') {
@@ -23,5 +22,6 @@ export function paragraphCase(node: ASTNode): any {
 
     return {
         text: content,
+        lineHeight: 1
     };
 }

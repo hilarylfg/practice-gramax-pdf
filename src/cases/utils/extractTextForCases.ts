@@ -16,6 +16,8 @@ export const extractText = (node: ASTNode): any => {
                     background: '#ededed',
                     fontSize: 10,
                     margin: [0, 10, 0, 10],
+                    font: 'RobotoMono',
+                    color: '#111111'
                 });
             }
         });
