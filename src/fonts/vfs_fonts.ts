@@ -5,7 +5,7 @@ import {
     RobotoLightItalic,
     RobotoRegular,
     RobotoMonoThin,
-    Conolas
+    Consolas
 } from "./index";
 
 export const vfs = {
@@ -15,5 +15,5 @@ export const vfs = {
     "Roboto-Regular.ttf": RobotoRegular,
     "Roboto-Light.ttf": RobotoLight,
     "RobotoMono-Thin.ttf": RobotoMonoThin,
-    "Conolas.ttf": Conolas
+    "Consolas.ttf": Consolas
 }

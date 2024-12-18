@@ -22,6 +22,6 @@ export function paragraphCase(node: ASTNode): any {
 
     return {
         text: content,
-        lineHeight: 1
+        lineHeight: 1.4
     };
 }

@@ -1,5 +1,6 @@
 import {ASTNode} from "../../types/ASTNode.ts";
 import {parseASTToPDFContent} from "../utils/parseAST.ts";
+import {errorCase} from "./errorCase.ts";
 
 const parseListItem = (node: ASTNode, level: number): any => {
     if (node.type === "bullet_list" || node.type === "ordered_list") {
@@ -8,7 +9,7 @@ const parseListItem = (node: ASTNode, level: number): any => {
 
     return {
         stack: parseASTToPDFContent(node.content || [], level),
-        margin: [2 * level, 5, 0, 0],
+        margin: [2 * level, 0, 0, 0],
     };
 };
 
@@ -24,10 +25,7 @@ const parseListCase = (node: ASTNode, level = 0): any => {
         };
     }
 
-    return {
-        text: "Invalid list structure",
-        style: "error",
-    };
+    return errorCase(node)
 };
 
 export function bulletListCase(node: ASTNode, level = 0): any {

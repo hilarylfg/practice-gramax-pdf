@@ -19,8 +19,8 @@ pdfMake.fonts = {
     RobotoMono: {
         normal: 'RobotoMono-Thin.ttf',
     },
-    Conolas: {
-        normal: 'Conolas.ttf',
+    Consolas: {
+        normal: 'Consolas.ttf',
     }
 };
 

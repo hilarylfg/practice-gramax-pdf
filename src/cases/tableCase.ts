@@ -17,6 +17,7 @@ export function tableCase(node: ASTNode): any {
     const content = node.content || [];
     return {
         table: {
+            dontBreakRows: true,
             body: parseTable(content),
         },
         layout: {

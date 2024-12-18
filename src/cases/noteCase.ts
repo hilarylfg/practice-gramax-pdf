@@ -57,8 +57,10 @@ export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFC
 
     return {
         table: {
+            dontBreakRows: true,
             widths: ['*'],
             body: [[{
+                pageBreak: 'avoid',
                 margin: 16,
                 fillColor: bgColor,
                 stack: [

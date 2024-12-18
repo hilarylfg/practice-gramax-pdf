@@ -2,9 +2,9 @@ import {ASTNode} from "../../../types/ASTNode.ts";
 
 const marginConfig: { [key: string]: { top?: number; bottom?: number } } = {
     heading: { top: 24, bottom: 12 },
-    paragraph: {bottom: 8},
-    bullet_list: {bottom: 11.8},
-    ordered_list: {bottom: 11.8},
+    paragraph: {bottom: 10},
+    bullet_list: {bottom: 12},
+    ordered_list: {bottom: 12},
     table: {top: 16, bottom: 16},
     code_block: {top: 28.8, bottom: 28.8},
     horizontal_rule: {top: 32, bottom: 32},
@@ -16,11 +16,12 @@ const marginConfig: { [key: string]: { top?: number; bottom?: number } } = {
 };
 
 const headingMargins: { [key: number]: { top: number; bottom: number } } = {
-    2: { top: 25.6, bottom: 12.8 },
-    3: { top: 20.8, bottom: 10.4 },
-    4: { top: 17.6, bottom: 8.8 },
+    2: { top: 20, bottom: 10 },
+    3: { top: 16, bottom: 8 },
+    4: { top: 12, bottom: 6 },
 };
 
+const LINE_HEIGHT_CORRECTION = 5;
 
 export function addMargin(prevType: string | null, currentType: string, currentNode?: ASTNode): any | null {
     if (!prevType) {
@@ -33,7 +34,7 @@ export function addMargin(prevType: string | null, currentType: string, currentN
     }
 
     const prevMargin = marginConfig[prevType] || {};
-    const prevBottom = prevMargin.bottom || 0;
+    const prevBottom = (prevMargin.bottom || 0) - LINE_HEIGHT_CORRECTION;
     const currentTop = currentMargin.top || 0;
 
     const topMargin = Math.max(prevBottom, currentTop);

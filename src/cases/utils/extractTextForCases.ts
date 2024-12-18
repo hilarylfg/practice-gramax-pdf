@@ -15,8 +15,9 @@ export const extractText = (node: ASTNode): any => {
                 Object.assign(text, {
                     background: '#ededed',
                     fontSize: 10,
-                    margin: [0, 10, 0, 10],
-                    font: 'RobotoMono',
+                    margin: [0, 10, 0, 15],
+                    lineHeight: 1,
+                    font: 'Consolas',
                     color: '#111111'
                 });
             }

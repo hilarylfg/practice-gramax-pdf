@@ -4,4 +4,4 @@ export { RobotoItalic } from './Roboto/RobotoItalic';
 export { RobotoMedium } from './Roboto/RobotoMedium';
 export { RobotoLightItalic } from './Roboto/RobotoLightItalic';
 export { RobotoMonoThin } from './RobotoMono/RobotoMonoThin.ts';
-export { Conolas } from './Conolas/Conolas';
+export { Consolas } from './Consolas/Consolas';

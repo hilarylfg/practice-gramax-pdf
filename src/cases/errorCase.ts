@@ -18,6 +18,7 @@ const titleErrors: { [key: string]: string } = {
 export function errorCase(node: ASTNode): any {
     return {
         table: {
+            dontBreakRows: true,
             widths: ['*'],
             body: [
                 [
