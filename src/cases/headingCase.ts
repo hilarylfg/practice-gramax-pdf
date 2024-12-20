@@ -6,5 +6,6 @@ export function headingCase(node: ASTNode): any {
         text: extractText(node),
         style: `header${node.attrs?.level || 1}`,
         font: 'RobotoRegular',
+        lineHeight: 1.4,
     };
 }

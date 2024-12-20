@@ -30,16 +30,15 @@ const casesMap: Record<string, (node: ASTNode, level?: number) => any> = {
 };
 
 export function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
-    let prevType: string | null = null;
+    let prevNode: ASTNode | null ;
 
     return ast.flatMap((node) => {
         try {
             const caseHandler = casesMap[node.type];
             if (caseHandler) {
                 const content = caseHandler(node, level);
-                const margin = addMargin(prevType, node.type, node);
-
-                prevType = node.type;
+                const margin = addMargin(prevNode, node.type, node);
+                prevNode = node;
                 return margin ? [margin, content] : [content];
             }
 

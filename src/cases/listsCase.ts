@@ -2,30 +2,33 @@ import {ASTNode} from "../../types/ASTNode.ts";
 import {parseASTToPDFContent} from "../utils/parseAST.ts";
 import {errorCase} from "./errorCase.ts";
 
-const parseListItem = (node: ASTNode, level: number): any => {
+const parseListItem = (node: ASTNode, level: number, isFirstItem: boolean): any => {
     if (node.type === "bullet_list" || node.type === "ordered_list") {
         return parseListCase(node, level + 1);
     }
 
+    const marginTop = isFirstItem ? 0 : 4;
+
     return {
         stack: parseASTToPDFContent(node.content || [], level),
-        margin: [2 * level, 0, 0, 0],
+        margin: [2 * level, marginTop, 0, 0],
     };
 };
 
 const parseListCase = (node: ASTNode, level = 0): any => {
     const content = node.content || [];
+
     if (node.type === "bullet_list") {
         return {
-            ul: content.map((item) => parseListItem(item, level)),
+            ul: content.map((item, index) => parseListItem(item, level, index === 0)),
         };
     } else if (node.type === "ordered_list") {
         return {
-            ol: content.map((item) => parseListItem(item, level)),
+            ol: content.map((item, index) => parseListItem(item, level, index === 0)),
         };
     }
 
-    return errorCase(node)
+    return errorCase(node);
 };
 
 export function bulletListCase(node: ASTNode, level = 0): any {
