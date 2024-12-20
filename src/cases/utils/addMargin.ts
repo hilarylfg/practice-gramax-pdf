@@ -16,9 +16,9 @@ const marginConfig: { [key: string]: { top?: number; bottom?: number } } = {
 };
 
 const headingMargins: { [key: number]: { top: number; bottom: number } } = {
-    2: {top: 25, bottom: 12},
+    2: {top: 24, bottom: 12},
     3: {top: 20, bottom: 10},
-    4: {top: 17, bottom: 8.8},
+    4: {top: 16, bottom: 8},
 };
 
 const LINE_HEIGHT_CORRECTION = 5;
