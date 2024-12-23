@@ -78,8 +78,8 @@ export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFC
                     },
                     ...(!node.attrs?.title ? content.slice(1) : content),
                 ],
-                border: [true, true, false, false],
-                borderColor: [borderColor, bgColor, false, false],
+                border: [true, true, true, false],
+                borderColor: [borderColor, bgColor, bgColor, false],
             }]],
         },
     };
