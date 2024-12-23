@@ -7,8 +7,8 @@ const titleErrors: { [key: string]: string } = {
     'video': 'видео',
     'note': 'заметка',
     'table': 'таблица',
-    'bullet_list': 'список',
-    'ordered_list': 'список',
+    'bulletList': 'список',
+    'orderedList': 'список',
     'heading': 'заголовок',
     'code_block': 'код',
     'horizontal_rule': 'горизонтальная линия',
@@ -23,10 +23,10 @@ export function errorCase(node: ASTNode): any {
             body: [
                 [
                     {
-                        margin: 16,
+                        margin: [12, 12, 12, 7],
                         fillColor: "#ffebeb",
-                        border: true,
-                        borderColor: "#ffc7c7",
+                        border: [true, true, true, true],
+                        borderColor: ["#ffc7c7", "#ffc7c7", "#ffc7c7", "#ffc7c7"],
                         stack: [
                             {
                                 columns: [
@@ -37,6 +37,7 @@ export function errorCase(node: ASTNode): any {
                                     },
                                     {
                                         text: `Не удалось обработать компонент: ${titleErrors[node.type] || node.type}`,
+                                        lineHeight: 1.4,
                                         bold: true,
                                         color: "#ba1c1c",
                                         margin: [8, 0, 0, 0],

@@ -18,8 +18,8 @@ import {addMargin} from "../cases/utils/addMargin.ts";
 const casesMap: Record<string, (node: ASTNode, level?: number) => any> = {
     heading: headingCase,
     paragraph: paragraphCase,
-    bullet_list: bulletListCase,
-    ordered_list: orderedListCase,
+    bulletList: bulletListCase,
+    orderedList: orderedListCase,
     table: tableCase,
     code_block: codeBlockCase,
     horizontal_rule: hrCase,

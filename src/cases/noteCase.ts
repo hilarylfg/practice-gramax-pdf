@@ -60,8 +60,7 @@ export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFC
             dontBreakRows: true,
             widths: ['*'],
             body: [[{
-                pageBreak: 'avoid',
-                margin: 16,
+                margin: [12, 12, 12, 7],
                 fillColor: bgColor,
                 stack: [
                     {
@@ -79,8 +78,8 @@ export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFC
                     },
                     ...(!node.attrs?.title ? content.slice(1) : content),
                 ],
-                border: [true, false, false, false],
-                borderColor: [borderColor, 0, 0, 0],
+                border: [true, true, false, false],
+                borderColor: [borderColor, bgColor, false, false],
             }]],
         },
     };

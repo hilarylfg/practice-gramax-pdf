@@ -84,14 +84,14 @@
             ]
         },
         {
-            "type": "bullet_list",
+            "type": "bulletList",
             "attrs": {
                 "tight": false,
                 "containTaskList": false
             },
             "content": [
                 {
-                    "type": "list_item",
+                    "type": "listItem",
                     "attrs": {
                         "isTaskItem": null
                     },
@@ -106,14 +106,14 @@
                             ]
                         },
                         {
-                            "type": "bullet_list",
+                            "type": "bulletList",
                             "attrs": {
                                 "tight": false,
                                 "containTaskList": false
                             },
                             "content": [
                                 {
-                                    "type": "list_item",
+                                    "type": "listItem",
                                     "attrs": {
                                         "isTaskItem": null
                                     },
@@ -128,14 +128,14 @@
                                             ]
                                         },
                                         {
-                                            "type": "bullet_list",
+                                            "type": "bulletList",
                                             "attrs": {
                                                 "tight": false,
                                                 "containTaskList": false
                                             },
                                             "content": [
                                                 {
-                                                    "type": "list_item",
+                                                    "type": "listItem",
                                                     "attrs": {
                                                         "isTaskItem": null
                                                     },
@@ -150,14 +150,14 @@
                                                             ]
                                                         },
                                                         {
-                                                            "type": "bullet_list",
+                                                            "type": "bulletList",
                                                             "attrs": {
                                                                 "tight": true,
                                                                 "containTaskList": false
                                                             },
                                                             "content": [
                                                                 {
-                                                                    "type": "list_item",
+                                                                    "type": "listItem",
                                                                     "attrs": {
                                                                         "isTaskItem": null
                                                                     },
@@ -188,14 +188,14 @@
             ]
         },
         {
-            "type": "ordered_list",
+            "type": "orderedList",
             "attrs": {
                 "order": 1,
                 "tight": false
             },
             "content": [
                 {
-                    "type": "list_item",
+                    "type": "listItem",
                     "attrs": {
                         "isTaskItem": null
                     },
@@ -212,7 +212,7 @@
                     ]
                 },
                 {
-                    "type": "list_item",
+                    "type": "listItem",
                     "attrs": {
                         "isTaskItem": null
                     },
@@ -227,14 +227,14 @@
                             ]
                         },
                         {
-                            "type": "ordered_list",
+                            "type": "orderedList",
                             "attrs": {
                                 "order": 1,
                                 "tight": false
                             },
                             "content": [
                                 {
-                                    "type": "list_item",
+                                    "type": "listItem",
                                     "attrs": {
                                         "isTaskItem": null
                                     },
@@ -249,14 +249,14 @@
                                             ]
                                         },
                                         {
-                                            "type": "ordered_list",
+                                            "type": "orderedList",
                                             "attrs": {
                                                 "order": 1,
                                                 "tight": false
                                             },
                                             "content": [
                                                 {
-                                                    "type": "list_item",
+                                                    "type": "listItem",
                                                     "attrs": {
                                                         "isTaskItem": null
                                                     },
@@ -271,14 +271,14 @@
                                                             ]
                                                         },
                                                         {
-                                                            "type": "ordered_list",
+                                                            "type": "orderedList",
                                                             "attrs": {
                                                                 "order": 1,
                                                                 "tight": true
                                                             },
                                                             "content": [
                                                                 {
-                                                                    "type": "list_item",
+                                                                    "type": "listItem",
                                                                     "attrs": {
                                                                         "isTaskItem": null
                                                                     },
@@ -770,7 +770,7 @@
                         {
                             "type": "tableCell",
                             "attrs": {
-                                "colspan": 1,
+                                "colspan": 2,
                                 "rowspan": 1,
                                 "colwidth": null
                             },
@@ -783,17 +783,7 @@
                                             "text": "Ячейка"
                                         }
                                     ]
-                                }
-                            ]
-                        },
-                        {
-                            "type": "tableCell",
-                            "attrs": {
-                                "colspan": 1,
-                                "rowspan": 1,
-                                "colwidth": null
-                            },
-                            "content": [
+                                },
                                 {
                                     "type": "paragraph",
                                     "content": [
@@ -1134,7 +1124,7 @@
         {
             "type": "image",
             "attrs": {
-                "src": "./export-3.png",
+                "src": "./export-3-2.png",
                 "alt": null,
                 "crop": {
                     "x": 0,
@@ -1144,7 +1134,9 @@
                 },
                 "title": "Подпись",
                 "scale": null,
-                "objects": []
+                "objects": [],
+                "width": null,
+                "height": null
             }
         },
         {

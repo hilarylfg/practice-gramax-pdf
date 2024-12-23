@@ -21,6 +21,9 @@ export interface ASTNode {
             children: ASTNode[]; // Вложенные элементы
         }[];
         text?: string; // Текстовое содержимое
+        colspan?: number; // Объединение ячеек по столбцам
+        rowspan?: number; // Объединение ячеек по строкам
+        colwidth?: number[] | null; // Ширина столбца
     };
     content?: ASTNode[]; // Вложенные элементы
     text?: string; // Текстовое содержимое узла

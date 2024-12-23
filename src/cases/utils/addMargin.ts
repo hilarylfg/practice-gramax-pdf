@@ -3,8 +3,8 @@ import {ASTNode} from "../../../types/ASTNode.ts";
 const marginConfig: { [key: string]: { top?: number; bottom?: number } } = {
     heading: {top: 24, bottom: 12},
     paragraph: {bottom: 10},
-    bullet_list: {bottom: 12},
-    ordered_list: {bottom: 12},
+    bulletList: {bottom: 12},
+    orderedList: {bottom: 12},
     table: {top: 16, bottom: 16},
     code_block: {top: 12, bottom: 12},
     horizontal_rule: {top: 32, bottom: 32},

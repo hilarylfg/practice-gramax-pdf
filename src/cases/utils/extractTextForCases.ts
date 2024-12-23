@@ -7,8 +7,7 @@ export const extractText = (node: ASTNode): any => {
             if (mark.type === 'strong') text.bold = true;
             if (mark.type === 'em') text.italics = true;
             if (mark.type === 'link') Object.assign(text, {
-                color: 'blue',
-                decoration: 'underline',
+                color: '#126199',
                 link: mark.attrs?.href || '#',
             });
             if (mark.type === 'code') {
