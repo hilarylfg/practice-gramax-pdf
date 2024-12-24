@@ -1,4 +1,6 @@
 import { ASTNode } from "../../types/ASTNode.ts";
+import {addMargin} from "../cases/utils/addMargin.ts";
+import {Content} from "pdfmake/interfaces";
 import {
     bulletListCase,
     codeBlockCase,
@@ -13,10 +15,8 @@ import {
     errorCase,
     svgCase,
 } from "../cases";
-import {addMargin} from "../cases/utils/addMargin.ts";
-import {CaseResult} from "../../types/CasesType.ts";
 
-const casesMap: Record<string, (node: ASTNode, level?: number) => CaseResult> = {
+const casesMap: Record<string, (node: ASTNode, level?: number) => Content> = {
     heading: headingCase,
     paragraph: paragraphCase,
     bulletList: bulletListCase,
@@ -30,7 +30,7 @@ const casesMap: Record<string, (node: ASTNode, level?: number) => CaseResult> = 
     drawio: svgCase,
 };
 
-export function parseASTToPDFContent(ast: ASTNode[], level = 0): CaseResult[] {
+export function parseASTToPDFContent(ast: ASTNode[], level = 0): Content[] {
     let prevNode: ASTNode | null;
     return ast.flatMap((node) => {
         try {

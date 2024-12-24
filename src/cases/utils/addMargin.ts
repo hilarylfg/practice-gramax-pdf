@@ -1,9 +1,5 @@
 import {ASTNode} from "../../../types/ASTNode.ts";
-
-interface MarginResult {
-    text?: string;
-    margin?: [number, number, number, number];
-}
+import {ContentText} from "pdfmake/interfaces";
 
 const marginConfig: { [key: string]: { top?: number; bottom?: number } } = {
     heading: {top: 24, bottom: 12},
@@ -20,7 +16,8 @@ const marginConfig: { [key: string]: { top?: number; bottom?: number } } = {
     code: {top: 26, bottom: 26},
 };
 
-const headingMargins: { [key: number]: { top: number; bottom: number } } = {
+const headingMargins: { [key: number]: { top?: number; bottom?: number } } = {
+    1: {bottom: 12},
     2: {top: 24, bottom: 12},
     3: {top: 20, bottom: 10},
     4: {top: 16, bottom: 8},
@@ -28,7 +25,7 @@ const headingMargins: { [key: number]: { top: number; bottom: number } } = {
 
 const LINE_HEIGHT_CORRECTION = 5;
 
-export function addMargin(prevNode: ASTNode | null, currentType: string, currentNode?: ASTNode): MarginResult | null {
+export function addMargin(prevNode: ASTNode | null, currentType: string, currentNode?: ASTNode): ContentText | null {
     if (!prevNode) {
         return null;
     }

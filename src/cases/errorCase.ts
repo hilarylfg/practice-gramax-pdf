@@ -1,6 +1,6 @@
 import { ASTNode } from "../../types/ASTNode.ts";
 import { icons } from "../utils/icons.ts";
-import {CaseResult} from "../../types/CasesType.ts";
+import {ContentTable} from "pdfmake/interfaces";
 
 const titleErrors: { [key: string]: string } = {
     'drawio': 'диаграмма',
@@ -16,7 +16,7 @@ const titleErrors: { [key: string]: string } = {
     'paragraph': 'параграф',
 };
 
-export function errorCase(node: ASTNode): CaseResult {
+export function errorCase(node: ASTNode): ContentTable {
     return {
         table: {
             dontBreakRows: true,

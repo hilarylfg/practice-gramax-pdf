@@ -1124,7 +1124,7 @@
         {
             "type": "image",
             "attrs": {
-                "src": "./export-3-2.png",
+                "src": "./export-3.png",
                 "alt": null,
                 "crop": {
                     "x": 0,

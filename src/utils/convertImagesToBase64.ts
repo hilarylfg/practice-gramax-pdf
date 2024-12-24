@@ -1,4 +1,4 @@
-import { ASTNode } from "../../types/ASTNode.ts";
+import {ASTNode} from "../../types/ASTNode.ts";
 
 export async function convertImagesToBase64(nodes: ASTNode[]): Promise<void> {
     const processImageNode = async (node: ASTNode): Promise<void> => {
@@ -7,14 +7,12 @@ export async function convertImagesToBase64(nodes: ASTNode[]): Promise<void> {
                 const response = await fetch(node.attrs.src);
                 const blob = await response.blob();
 
-                const base64Image = await new Promise<string>((resolve, reject) => {
+                node.attrs.src = await new Promise<string>((resolve, reject) => {
                     const reader = new FileReader();
                     reader.onloadend = () => resolve(reader.result as string);
                     reader.onerror = reject;
                     reader.readAsDataURL(blob);
                 });
-
-                node.attrs.src = base64Image;
             } catch (error) {
                 console.error('Ошибка обработки изображения:', error);
                 node.attrs.src = "data:text/html;base64";
@@ -23,8 +21,7 @@ export async function convertImagesToBase64(nodes: ASTNode[]): Promise<void> {
 
         if (node.type === "drawio" && node.attrs?.src) {
             try {
-                const svgContent = await getFileContent(node.attrs.src);
-                node.attrs.src = svgContent;
+                node.attrs.src = await getFileContent(node.attrs.src);
             } catch (error) {
                 console.error(`Ошибка при загрузке SVG: ${error}`);
                 node.attrs.src = "data:text/html;base64";
@@ -43,7 +40,7 @@ async function getFileContent(url: string): Promise<string> {
     try {
         const response = await fetch(url);
         if (!response.ok) {
-            throw new Error(`Ошибка HTTP: ${response.status}`);
+            new Error(`Ошибка: ${response.status}`);
         }
         return await response.text();
     } catch (error) {

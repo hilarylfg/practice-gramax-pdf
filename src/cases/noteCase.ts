@@ -1,7 +1,8 @@
-import {ASTNode} from "../../types/ASTNode.ts";
-import {parseASTToPDFContent} from "../utils/parseAST.ts";
-import {icons} from "../utils/icons.ts";
-import {CaseResult} from "../../types/CasesType.ts";
+import { ASTNode } from "../../types/ASTNode.ts";
+import { parseASTToPDFContent } from "../utils/parseAST.ts";
+import { icons } from "../utils/icons.ts";
+import { ContentTable, Content } from "pdfmake/interfaces";
+import {errorCase} from "./errorCase.ts";
 
 const borderColors: { [key: string]: string } = {
     tip: '#00aaff',
@@ -40,7 +41,7 @@ const extractNoteText = (node: ASTNode): string => {
     return node.content?.map(extractNoteText).join('') || '';
 };
 
-export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFContent): CaseResult {
+export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFContent): ContentTable {
     const noteType = node.attrs?.type || 'note';
     const borderColor = borderColors[noteType] || '#7b7b7b';
     const bgColor = bgColors[noteType] || '';
@@ -48,40 +49,47 @@ export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFC
 
     if (node.attrs?.title === "Подробнее" && 'chevron-down') icon = 'chevron-down';
 
-    const content = parseContent(node.content || [], level).map((item) => ({
-        ...item,
+    const parsedContent = parseContent(node.content || [], level);
+    const contentArray: Content = Array.isArray(parsedContent) ? parsedContent : [parsedContent];
+    const content = contentArray.map((item) => ({
+        ...item as object,
     }));
 
     const titleOrContent = node.attrs?.title
         ? { text: node.attrs?.title, bold: true, color: borderColor }
         : content[0];
 
-    return {
-        table: {
-            dontBreakRows: true,
-            widths: ['*'],
-            body: [[{
-                margin: [12, 12, 12, 7],
-                fillColor: bgColor,
-                stack: [
-                    {
-                        columns: [
-                            {
-                                svg: icons[icon],
-                                width: 14,
-                                height: 14,
-                            },
-                            {
-                                ...titleOrContent,
-                                margin: node.attrs?.title ? [8, 0, 0, 12] : [8, 0, 0, 0],
-                            },
-                        ],
-                    },
-                    ...(!node.attrs?.title ? content.slice(1) : content),
-                ],
-                border: [true, true, true, false],
-                borderColor: [borderColor, bgColor, bgColor, false],
-            }]],
-        },
-    };
+    try {
+        return {
+            table: {
+                dontBreakRows: true,
+                widths: ['*'],
+                body: [[{
+                    margin: [12, 12, 12, 7],
+                    fillColor: bgColor,
+                    stack: [
+                        {
+                            columns: [
+                                {
+                                    svg: icons[icon],
+                                    width: 14,
+                                    height: 14,
+                                },
+                                {
+                                    ...titleOrContent,
+                                    margin: node.attrs?.title ? [8, 0, 0, 12] : [8, 0, 0, 0],
+                                },
+                            ],
+                        },
+                        ...(!node.attrs?.title ? content.slice(1) : content),
+                    ],
+                    border: [true, true, true, false],
+                    borderColor: [borderColor, bgColor, bgColor, false],
+                }]],
+            },
+        };
+    }
+    catch (e) {
+        return errorCase(node) as never;
+    }
 }

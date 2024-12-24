@@ -2,10 +2,12 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import {ASTNode} from '../../types/ASTNode.ts';
 import {parseASTToPDFContent} from "./parseAST.ts";
 import {vfs} from "../fonts/vfs_fonts.ts";
-import {Content} from "pdfmake/interfaces";
+import {Content, Style} from "pdfmake/interfaces";
 
 interface PDFDocDefinition {
-    content: Content[];
+    content: Content;
+    footer?: (currentPage: number, pageCount: number) => Content | string;
+    styles?: Record<string, Style>;
 }
 
 pdfMake.vfs = vfs;
@@ -30,6 +32,14 @@ pdfMake.fonts = {
 export function generatePDF(ast: ASTNode[]): void {
     const docDefinition: PDFDocDefinition = {
         content: parseASTToPDFContent(ast),
+        footer: (currentPage: number, pageCount: number) => {
+            return {
+                text: `Страница ${currentPage} из ${pageCount}`,
+                alignment: 'center',
+                fontSize: 10,
+                margin: [0, 10, 0, 0]
+            };
+        },
         styles: {
             header1: {fontSize: 24},
             header2: {fontSize: 21},

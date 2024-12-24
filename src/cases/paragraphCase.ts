@@ -1,24 +1,18 @@
-import { ASTNode } from '../../types/ASTNode';
-import { extractText } from "./utils/extractTextForCases.ts";
-import {CaseResult} from "../../types/CasesType.ts";
+import {ASTNode} from '../../types/ASTNode';
+import {errorCase} from "./errorCase.ts";
+import {ContentText} from "pdfmake/interfaces";
+import {extractText} from "./utils/extractTextForCases.ts";
 
-export function paragraphCase(node: ASTNode): CaseResult {
-    const content = (node.content || []).map((item) => {
-        if (item.type === 'text') {
-            return extractText(item);
-        }
-    });
+export function paragraphCase(node: ASTNode): ContentText {
+    const content = (node.content || []).map((item) =>
+        item?.type === 'text' ? extractText(item) : undefined);
 
-    const isTableContent = content.some((item) => item.table || item.stack);
-
-    if (isTableContent) {
+    try {
         return {
-            stack: content,
+            text: content.filter((item) => item !== undefined),
+            lineHeight: 1.4
         };
+    } catch (e) {
+        return errorCase(node) as never;
     }
-
-    return {
-        text: content,
-        lineHeight: 1.4
-    };
 }

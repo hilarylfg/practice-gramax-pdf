@@ -1,6 +1,6 @@
-import {CaseResult} from "../../types/CasesType.ts";
+import {ContentCanvas} from "pdfmake/interfaces";
 
-export function hrCase(): CaseResult {
+export function hrCase(): ContentCanvas {
     return {
         canvas: [
             {

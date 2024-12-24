@@ -1,14 +1,13 @@
 import {ASTNode} from "../../types/ASTNode.ts";
 import {parseASTToPDFContent} from "../utils/parseAST.ts";
-import {CaseResult} from "../../types/CasesType.ts";
+import {Content, ContentTable, TableCellProperties} from "pdfmake/interfaces";
+import {errorCase} from "./errorCase.ts";
 
-export interface TableCell {
+export interface TableCell extends TableCellProperties {
     text?: string;
-    stack?: CaseResult[];
+    stack?: Content[];
     bold?: boolean;
     margin?: [number, number, number, number];
-    colSpan?: number;
-    rowSpan?: number;
 }
 
 export type TableRow = TableCell[];
@@ -63,29 +62,34 @@ const parseTable = (rows: ASTNode[], parseContent = parseASTToPDFContent): Table
     return tableBody;
 };
 
-export function tableCase(node: ASTNode): CaseResult {
+export function tableCase(node: ASTNode): ContentTable {
     const content = node.content || [];
     const body = parseTable(content);
     const maxColumns = Math.max(...body.map(row => row.length));
-    const normalizedBody: TableBody = body.map(row => {
+    const normalizedBody: TableCell[][] = body.map(row => {
         while (row.length < maxColumns) {
-            row.push({text: " ", margin: [6, 6, 6, 1]});
+            row.push({ text: " ", margin: [6, 6, 6, 1] });
         }
         return row;
     });
 
-    return {
-        table: {
-            dontBreakRows: true,
-            body: normalizedBody,
-        },
-        layout: {
-            hLineWidth: (rowIndex: number, _node: { table: { body: TableBody } }) =>
-                rowIndex === 0 || rowIndex === _node.table.body.length ? 0 : 0.1,
-            vLineWidth: (colIndex: number, _node: { table: { widths: string[] } }) =>
-                colIndex === 0 || colIndex === _node.table.widths.length ? 0 : 0.1,
-            hLineColor: () => '#a4a4a4',
-            vLineColor: () => '#a4a4a4',
-        },
-    };
+    try {
+        return {
+            table: {
+                dontBreakRows: true,
+                body: normalizedBody,
+            },
+            layout: {
+                hLineWidth: (rowIndex, _node) =>
+                    rowIndex === 0 || (_node.table.body && rowIndex === _node.table.body.length) ? 0 : 0.1,
+                vLineWidth: (colIndex, _node) =>
+                    colIndex === 0 || (_node.table.widths && colIndex === _node.table.widths.length) ? 0 : 0.1,
+                hLineColor: () => '#a4a4a4',
+                vLineColor: () => '#a4a4a4',
+            },
+        };
+    }
+    catch (e) {
+        return errorCase(node) as never;
+    }
 }

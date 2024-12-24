@@ -1,9 +1,9 @@
 import {ASTNode} from "../../../types/ASTNode.ts";
-import {CaseText} from "../../../types/CasesType.ts";
+import {ContentText} from "pdfmake/interfaces";
 
-export const extractText = (node: ASTNode): CaseText | CaseText[] => {
+export const extractText = (node: ASTNode): ContentText | ContentText[] => {
     if (node.type === 'text') {
-        let text: CaseText = { text: node.text || '' };
+        let text: ContentText = { text: node.text || '' };
 
         node.marks?.forEach((mark) => {
             if (mark.type === 'strong') text.bold = true;
