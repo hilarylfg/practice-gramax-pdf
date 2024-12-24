@@ -1,5 +1,10 @@
 import {ASTNode} from "../../../types/ASTNode.ts";
 
+interface MarginResult {
+    text?: string;
+    margin?: [number, number, number, number];
+}
+
 const marginConfig: { [key: string]: { top?: number; bottom?: number } } = {
     heading: {top: 24, bottom: 12},
     paragraph: {bottom: 10},
@@ -23,7 +28,7 @@ const headingMargins: { [key: number]: { top: number; bottom: number } } = {
 
 const LINE_HEIGHT_CORRECTION = 5;
 
-export function addMargin(prevNode: ASTNode | null, currentType: string, currentNode?: ASTNode): any | null {
+export function addMargin(prevNode: ASTNode | null, currentType: string, currentNode?: ASTNode): MarginResult | null {
     if (!prevNode) {
         return null;
     }

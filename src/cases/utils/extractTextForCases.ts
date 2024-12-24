@@ -1,15 +1,19 @@
 import {ASTNode} from "../../../types/ASTNode.ts";
+import {CaseText} from "../../../types/CasesType.ts";
 
-export const extractText = (node: ASTNode): any => {
+export const extractText = (node: ASTNode): CaseText | CaseText[] => {
     if (node.type === 'text') {
-        let text: any = {text: node.text || ''};
+        let text: CaseText = { text: node.text || '' };
+
         node.marks?.forEach((mark) => {
             if (mark.type === 'strong') text.bold = true;
             if (mark.type === 'em') text.italics = true;
-            if (mark.type === 'link') Object.assign(text, {
-                color: '#126199',
-                link: mark.attrs?.href || '#',
-            });
+            if (mark.type === 'link') {
+                Object.assign(text, {
+                    color: '#126199',
+                    link: mark.attrs?.href || '#',
+                });
+            }
             if (mark.type === 'code') {
                 Object.assign(text, {
                     background: '#ededed',
@@ -23,5 +27,5 @@ export const extractText = (node: ASTNode): any => {
         });
         return text;
     }
-    return node.content?.map(extractText) || '';
+    return node.content?.map(extractText).flat() || [];
 };

@@ -1,5 +1,6 @@
 import { ASTNode } from "../../types/ASTNode.ts";
 import { icons } from "../utils/icons.ts";
+import {CaseResult} from "../../types/CasesType.ts";
 
 const titleErrors: { [key: string]: string } = {
     'drawio': 'диаграмма',
@@ -15,7 +16,7 @@ const titleErrors: { [key: string]: string } = {
     'paragraph': 'параграф',
 };
 
-export function errorCase(node: ASTNode): any {
+export function errorCase(node: ASTNode): CaseResult {
     return {
         table: {
             dontBreakRows: true,

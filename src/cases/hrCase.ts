@@ -1,4 +1,6 @@
-export function hrCase() {
+import {CaseResult} from "../../types/CasesType.ts";
+
+export function hrCase(): CaseResult {
     return {
         canvas: [
             {

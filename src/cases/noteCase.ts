@@ -1,6 +1,7 @@
 import {ASTNode} from "../../types/ASTNode.ts";
 import {parseASTToPDFContent} from "../utils/parseAST.ts";
 import {icons} from "../utils/icons.ts";
+import {CaseResult} from "../../types/CasesType.ts";
 
 const borderColors: { [key: string]: string } = {
     tip: '#00aaff',
@@ -39,7 +40,7 @@ const extractNoteText = (node: ASTNode): string => {
     return node.content?.map(extractNoteText).join('') || '';
 };
 
-export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFContent): any {
+export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFContent): CaseResult {
     const noteType = node.attrs?.type || 'note';
     const borderColor = borderColors[noteType] || '#7b7b7b';
     const bgColor = bgColors[noteType] || '';

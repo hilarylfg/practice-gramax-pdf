@@ -1,11 +1,14 @@
 import pdfMake from 'pdfmake/build/pdfmake';
 import {ASTNode} from '../../types/ASTNode.ts';
 import {parseASTToPDFContent} from "./parseAST.ts";
-import {styles} from "../styles/styles.ts";
 import {vfs} from "../fonts/vfs_fonts.ts";
+import {Content} from "pdfmake/interfaces";
+
+interface PDFDocDefinition {
+    content: Content[];
+}
 
 pdfMake.vfs = vfs;
-
 pdfMake.fonts = {
     Roboto: {
         normal: 'Roboto-Light.ttf',
@@ -25,9 +28,14 @@ pdfMake.fonts = {
 };
 
 export function generatePDF(ast: ASTNode[]): void {
-    const docDefinition: any = {
+    const docDefinition: PDFDocDefinition = {
         content: parseASTToPDFContent(ast),
-        styles,
+        styles: {
+            header1: {fontSize: 24},
+            header2: {fontSize: 21},
+            header3: {fontSize: 18},
+            header4: {fontSize: 14},
+        }
     };
 
     const pdfDoc = pdfMake.createPdf(docDefinition);

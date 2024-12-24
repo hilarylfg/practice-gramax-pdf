@@ -14,8 +14,9 @@ import {
     svgCase,
 } from "../cases";
 import {addMargin} from "../cases/utils/addMargin.ts";
+import {CaseResult} from "../../types/CasesType.ts";
 
-const casesMap: Record<string, (node: ASTNode, level?: number) => any> = {
+const casesMap: Record<string, (node: ASTNode, level?: number) => CaseResult> = {
     heading: headingCase,
     paragraph: paragraphCase,
     bulletList: bulletListCase,
@@ -29,9 +30,8 @@ const casesMap: Record<string, (node: ASTNode, level?: number) => any> = {
     drawio: svgCase,
 };
 
-export function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
-    let prevNode: ASTNode | null ;
-
+export function parseASTToPDFContent(ast: ASTNode[], level = 0): CaseResult[] {
+    let prevNode: ASTNode | null;
     return ast.flatMap((node) => {
         try {
             const caseHandler = casesMap[node.type];
@@ -41,10 +41,8 @@ export function parseASTToPDFContent(ast: ASTNode[], level = 0): any[] {
                 prevNode = node;
                 return margin ? [margin, content] : [content];
             }
-
             return parseASTToPDFContent(node.content || [], level);
         } catch (error) {
-            console.error(`Error rendering node of type '${node.type}':`, error);
             return errorCase(node);
         }
     });

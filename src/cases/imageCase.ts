@@ -1,9 +1,10 @@
 import {ASTNode} from '../../types/ASTNode';
 import {errorCase} from "./errorCase.ts";
+import {CaseResult} from "../../types/CasesType.ts";
 
 const notFoundImage = 'data:text/html;base64,';
 
-export function imageCase(node: ASTNode): any {
+export function imageCase(node: ASTNode): CaseResult {
     if (node.attrs?.src?.startsWith(notFoundImage) ) {
         return errorCase(node);
     }

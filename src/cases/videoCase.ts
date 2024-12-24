@@ -1,6 +1,7 @@
 import {ASTNode} from "../../types/ASTNode.ts";
+import {CaseResult} from "../../types/CasesType.ts";
 
-export function videoCase(node: ASTNode): any {
+export function videoCase(node: ASTNode): CaseResult {
     return {
         stack: [
             {

@@ -1,7 +1,8 @@
 import { ASTNode } from '../../types/ASTNode';
 import { extractText } from "./utils/extractTextForCases.ts";
+import {CaseResult} from "../../types/CasesType.ts";
 
-export function codeBlockCase(node: ASTNode): any {
+export function codeBlockCase(node: ASTNode): CaseResult {
     return {
         table: {
             dontBreakRows: true,
