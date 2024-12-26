@@ -1,7 +1,7 @@
 import { ASTNode } from "../../types/ASTNode.ts";
 import { parseASTToPDFContent } from "../utils/parseAST.ts";
-import { errorCase } from "./errorCase.ts";
 import { ContentOrderedList, ContentStack, ContentUnorderedList } from "pdfmake/interfaces";
+import {errorCase} from "./errorCase.ts";
 
 const parseListItem = (node: ASTNode, level: number, isFirstItem: boolean): ContentOrderedList | ContentUnorderedList | ContentStack => {
     if (node.type === "bulletList" || node.type === "orderedList") {

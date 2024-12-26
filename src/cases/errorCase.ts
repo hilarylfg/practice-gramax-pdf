@@ -50,5 +50,6 @@ export function errorCase(node: ASTNode): ContentTable {
                 ],
             ],
         },
+        margin: [0, 0, 0, 8],
     };
 }

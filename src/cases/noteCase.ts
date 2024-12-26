@@ -1,8 +1,7 @@
-import { ASTNode } from "../../types/ASTNode.ts";
-import { parseASTToPDFContent } from "../utils/parseAST.ts";
-import { icons } from "../utils/icons.ts";
-import { ContentTable, Content } from "pdfmake/interfaces";
-import {errorCase} from "./errorCase.ts";
+import {ASTNode} from "../../types/ASTNode.ts";
+import {parseASTToPDFContent} from "../utils/parseAST.ts";
+import {icons} from "../utils/icons.ts";
+import {ContentTable, Content} from "pdfmake/interfaces";
 
 const borderColors: { [key: string]: string } = {
     tip: '#00aaff',
@@ -56,40 +55,35 @@ export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFC
     }));
 
     const titleOrContent = node.attrs?.title
-        ? { text: node.attrs?.title, bold: true, color: borderColor }
+        ? {text: node.attrs?.title, bold: true, color: borderColor}
         : content[0];
 
-    try {
-        return {
-            table: {
-                dontBreakRows: true,
-                widths: ['*'],
-                body: [[{
-                    margin: [12, 12, 12, 7],
-                    fillColor: bgColor,
-                    stack: [
-                        {
-                            columns: [
-                                {
-                                    svg: icons[icon],
-                                    width: 14,
-                                    height: 14,
-                                },
-                                {
-                                    ...titleOrContent,
-                                    margin: node.attrs?.title ? [8, 0, 0, 12] : [8, 0, 0, 0],
-                                },
-                            ],
-                        },
-                        ...(!node.attrs?.title ? content.slice(1) : content),
-                    ],
-                    border: [true, true, true, false],
-                    borderColor: [borderColor, bgColor, bgColor, false],
-                }]],
-            },
-        };
-    }
-    catch (e) {
-        return errorCase(node) as never;
-    }
+    return {
+        table: {
+            dontBreakRows: true,
+            widths: ['*'],
+            body: [[{
+                margin: [12, 12, 12, 7],
+                fillColor: bgColor,
+                stack: [
+                    {
+                        columns: [
+                            {
+                                svg: icons[icon],
+                                width: 14,
+                                height: 14,
+                            },
+                            {
+                                ...titleOrContent,
+                                margin: node.attrs?.title ? [8, 0, 0, 12] : [8, 0, 0, 0],
+                            },
+                        ],
+                    },
+                    ...(!node.attrs?.title ? content.slice(1) : content),
+                ],
+                border: [true, true, true, false],
+                borderColor: [borderColor, bgColor, bgColor, false],
+            }]],
+        },
+    };
 }

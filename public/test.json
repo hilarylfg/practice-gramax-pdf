@@ -4,7 +4,7 @@
     {
       "type": "heading",
       "attrs": {
-        "level": 1,
+        "level": 52,
         "id": null,
         "isCustomId": false
       },
@@ -12,6 +12,15 @@
         {
           "type": "text",
           "text": "Тестирование обработки ошибок и загрузки контента"
+        }
+      ]
+    },
+    {
+      "type": "unknown",
+      "content": [
+        {
+          "type": "text",
+          "text": "Этот элемент не должен рендериться."
         }
       ]
     },
@@ -47,398 +56,29 @@
       ]
     },
     {
-      "type": "heading",
-      "attrs": {
-        "level": 2,
-        "id": null,
-        "isCustomId": false
-      },
-      "content": [
-        {
-          "type": "text",
-          "text": "Заголовок 2"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "text": "Здесь мы проверяем "
-        },
-        {
-          "type": "text",
-          "marks": [
-            {
-              "type": "link",
-              "attrs": {
-                "href": "https://example.com",
-                "resourcePath": "",
-                "hash": "",
-                "isFile": false
-              }
-            }
-          ],
-          "text": "ссылки"
-        },
-        {
-          "type": "text",
-          "text": " и их отображение."
-        }
-      ]
-    },
-    {
-      "type": "bulletList",
-      "attrs": {
-        "tight": false,
-        "containTaskList": false
-      },
-      "content": [
-        {
-          "type": "listItem",
-          "attrs": {
-            "isTaskItem": null
-          },
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "Маркированный список первого уровня."
-                }
-              ]
-            },
-            {
-              "type": "bulletList",
-              "attrs": {
-                "tight": false,
-                "containTaskList": false
-              },
-              "content": [
-                {
-                  "type": "listItem",
-                  "attrs": {
-                    "isTaskItem": null
-                  },
-                  "content": [
-                    {
-                      "type": "paragraph",
-                      "content": [
-                        {
-                          "type": "text",
-                          "text": "Второй уровень списка."
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "orderedList",
-      "attrs": {
-        "order": 1,
-        "tight": false
-      },
-      "content": [
-        {
-          "type": "listItem",
-          "attrs": {
-            "isTaskItem": null
-          },
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "Нумерованный список первого уровня."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "listItem",
-          "attrs": {
-            "isTaskItem": null
-          },
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "Второй элемент списка."
-                }
-              ]
-            },
-            {
-              "type": "orderedList",
-              "attrs": {
-                "order": 1,
-                "tight": false
-              },
-              "content": [
-                {
-                  "type": "listItem",
-                  "attrs": {
-                    "isTaskItem": null
-                  },
-                  "content": [
-                    {
-                      "type": "paragraph",
-                      "content": [
-                        {
-                          "type": "text",
-                          "text": "Вложенный список."
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "table",
-      "content": [
-        {
-          "type": "tableRow",
-          "content": [
-            {
-              "type": "tableHeader",
-              "attrs": {
-                "colspan": 1,
-                "rowspan": 1,
-                "colwidth": null
-              },
-              "content": [
-                {
-                  "type": "paragraph",
-                  "content": [
-                    {
-                      "type": "text",
-                      "text": "Заголовок 1"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "tableHeader",
-              "attrs": {
-                "colspan": 1,
-                "rowspan": 1,
-                "colwidth": null
-              },
-              "content": [
-                {
-                  "type": "paragraph",
-                  "content": [
-                    {
-                      "type": "text",
-                      "text": "Заголовок 2"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "tableHeader",
-              "attrs": {
-                "colspan": 1,
-                "rowspan": 1,
-                "colwidth": null
-              },
-              "content": [
-                {
-                  "type": "paragraph",
-                  "content": [
-                    {
-                      "type": "text",
-                      "text": "Заголовок 3"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "tableRow",
-          "content": [
-            {
-              "type": "tableCell",
-              "attrs": {
-                "colspan": 1,
-                "rowspan": 1,
-                "colwidth": null
-              },
-              "content": [
-                {
-                  "type": "paragraph",
-                  "content": [
-                    {
-                      "type": "text",
-                      "text": "Ячейка 1"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "attrs": {
-                "colspan": 1,
-                "rowspan": 1,
-                "colwidth": null
-              },
-              "content": [
-                {
-                  "type": "paragraph",
-                  "content": [
-                    {
-                      "type": "text",
-                      "text": "Ячейка 2"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "attrs": {
-                "colspan": 1,
-                "rowspan": 1,
-                "colwidth": null
-              },
-              "content": [
-                {
-                  "type": "paragraph",
-                  "content": [
-                    {
-                      "type": "text",
-                      "text": "Ячейка 3"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "text": "Здесь мы проверяем "
-        },
-        {
-          "type": "text",
-          "marks": [
-            {
-              "type": "code"
-            }
-          ],
-          "text": "строку кода"
-        },
-        {
-          "type": "text",
-          "text": " и "
-        },
-        {
-          "type": "text",
-          "marks": [
-            {
-              "type": "code"
-            }
-          ],
-          "text": "блок кода"
-        },
-        {
-          "type": "text",
-          "text": "."
-        }
-      ]
-    },
-    {
-      "type": "code_block",
-      "attrs": {
-        "language": "javascript"
-      },
-      "content": [
-        {
-          "type": "text",
-          "text": "function test() {\n    console.log('Это блок кода');\n}"
-        }
-      ]
-    },
-    {
       "type": "image",
       "attrs": {
-        "src": "./export-3.png",
         "alt": "Тестовое изображение",
-        "crop": {
-          "x": 0,
-          "y": 0,
-          "w": 100,
-          "h": 100
-        },
-        "title": "Тестовое изображение",
-        "scale": null,
-        "objects": [],
-        "width": null,
-        "height": null
+        "title": "Тестовое изображение"
       }
     },
     {
       "type": "video",
       "attrs": {
         "title": "Тестовое видео",
-        "path": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "path": "",
         "isLink": true
       }
     },
     {
-      "type": "note",
+      "type": "code_block",
       "attrs": {
-        "title": "Важная информация",
-        "type": "info",
-        "collapsed": false
+        "language": ""
       },
       "content": [
         {
-          "type": "paragraph",
-          "content": [
-            {
-              "type": "text",
-              "text": "Это важная информация, которую нужно учесть."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "horizontal_rule"
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
           "type": "text",
-          "text": "Здесь мы проверяем горизонтальную линию."
+          "text": "function test() {\n    console.log('Это блок кода');\n}"
         }
       ]
     }

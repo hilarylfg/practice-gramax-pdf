@@ -14,7 +14,6 @@ export async function convertImagesToBase64(nodes: ASTNode[]): Promise<void> {
                     reader.readAsDataURL(blob);
                 });
             } catch (error) {
-                console.error('Ошибка обработки изображения:', error);
                 node.attrs.src = "data:text/html;base64";
             }
         }
@@ -23,7 +22,6 @@ export async function convertImagesToBase64(nodes: ASTNode[]): Promise<void> {
             try {
                 node.attrs.src = await getFileContent(node.attrs.src);
             } catch (error) {
-                console.error(`Ошибка при загрузке SVG: ${error}`);
                 node.attrs.src = "data:text/html;base64";
             }
         }

@@ -1,7 +1,6 @@
 import {ASTNode} from "../../types/ASTNode.ts";
 import {parseASTToPDFContent} from "../utils/parseAST.ts";
 import {Content, ContentTable, TableCellProperties} from "pdfmake/interfaces";
-import {errorCase} from "./errorCase.ts";
 
 export interface TableCell extends TableCellProperties {
     text?: string;
@@ -53,7 +52,7 @@ const parseTable = (rows: ASTNode[], parseContent = parseASTToPDFContent): Table
 
         for (let colIndex = 0; colIndex < occupiedCells[rowIndex].length; colIndex++) {
             if (!tableRow[colIndex]) {
-                tableRow[colIndex] = { text: " ", margin: [6, 6, 6, 1] };
+                tableRow[colIndex] = {text: " ", margin: [6, 6, 6, 1]};
             }
         }
 
@@ -68,28 +67,23 @@ export function tableCase(node: ASTNode): ContentTable {
     const maxColumns = Math.max(...body.map(row => row.length));
     const normalizedBody: TableCell[][] = body.map(row => {
         while (row.length < maxColumns) {
-            row.push({ text: " ", margin: [6, 6, 6, 1] });
+            row.push({text: " ", margin: [6, 6, 6, 1]});
         }
         return row;
     });
 
-    try {
-        return {
-            table: {
-                dontBreakRows: true,
-                body: normalizedBody,
-            },
-            layout: {
-                hLineWidth: (rowIndex, _node) =>
-                    rowIndex === 0 || (_node.table.body && rowIndex === _node.table.body.length) ? 0 : 0.1,
-                vLineWidth: (colIndex, _node) =>
-                    colIndex === 0 || (_node.table.widths && colIndex === _node.table.widths.length) ? 0 : 0.1,
-                hLineColor: () => '#a4a4a4',
-                vLineColor: () => '#a4a4a4',
-            },
-        };
-    }
-    catch (e) {
-        return errorCase(node) as never;
-    }
+    return {
+        table: {
+            dontBreakRows: true,
+            body: normalizedBody,
+        },
+        layout: {
+            hLineWidth: (rowIndex, _node) =>
+                rowIndex === 0 || (_node.table.body && rowIndex === _node.table.body.length) ? 0 : 0.1,
+            vLineWidth: (colIndex, _node) =>
+                colIndex === 0 || (_node.table.widths && colIndex === _node.table.widths.length) ? 0 : 0.1,
+            hLineColor: () => '#a4a4a4',
+            vLineColor: () => '#a4a4a4',
+        },
+    };
 }

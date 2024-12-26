@@ -7,6 +7,7 @@ import {Content, Style} from "pdfmake/interfaces";
 interface PDFDocDefinition {
     content: Content;
     footer?: (currentPage: number, pageCount: number) => Content | string;
+    header?: (currentPage: number, pageCount: number) => Content | string;
     styles?: Record<string, Style>;
 }
 
@@ -32,6 +33,13 @@ pdfMake.fonts = {
 export function generatePDF(ast: ASTNode[]): void {
     const docDefinition: PDFDocDefinition = {
         content: parseASTToPDFContent(ast),
+        header: () => {
+            return {
+                text: "Название каталога",
+                fontSize: 10,
+                margin: [3, 3, 0, 0]
+            };
+        },
         footer: (currentPage: number, pageCount: number) => {
             return {
                 text: `Страница ${currentPage} из ${pageCount}`,

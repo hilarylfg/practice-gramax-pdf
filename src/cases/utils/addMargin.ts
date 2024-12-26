@@ -29,8 +29,8 @@ export function addMargin(prevNode: ASTNode | null, currentType: string, current
     if (!prevNode) {
         return null;
     }
-    let currentMargin = marginConfig[currentType] || {};
-    let prevMargin = marginConfig[prevNode.type] || {};
+    let currentMargin = marginConfig[currentType] || {top: 0, bottom: 0};
+    let prevMargin = marginConfig[prevNode.type] || {top: 0, bottom: 0};
 
     if (currentType === 'heading' && currentNode?.attrs?.level) {
         const level = currentNode.attrs.level;
@@ -38,7 +38,7 @@ export function addMargin(prevNode: ASTNode | null, currentType: string, current
     }
 
     if (prevNode.type === "heading") {
-        prevMargin = headingMargins[prevNode.attrs?.level || 1]
+        prevMargin = headingMargins[prevNode.attrs?.level || 1] || {top: 0, bottom: 0};
     }
 
     const prevBottom = prevMargin.bottom || 0;
