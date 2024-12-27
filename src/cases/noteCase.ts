@@ -2,6 +2,7 @@ import {ASTNode} from "../../types/ASTNode.ts";
 import {parseASTToPDFContent} from "../utils/parseAST.ts";
 import {icons} from "../utils/icons.ts";
 import {ContentTable, Content} from "pdfmake/interfaces";
+import {Config} from "../utils/config.ts";
 
 const borderColors: { [key: string]: string } = {
     tip: '#00aaff',
@@ -55,7 +56,7 @@ export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFC
     }));
 
     const titleOrContent = node.attrs?.title
-        ? {text: node.attrs?.title, bold: true, color: borderColor}
+        ? {text: node.attrs?.title, fontSize: Config.baseFontSize * 0.75, bold: true, color: borderColor}
         : content[0];
 
     return {
@@ -63,19 +64,19 @@ export function noteCase(node: ASTNode, level = 0, parseContent = parseASTToPDFC
             dontBreakRows: true,
             widths: ['*'],
             body: [[{
-                margin: [12, 12, 12, 7],
+                margin: [Config.baseFontSize * 0.75, Config.baseFontSize * 0.75, Config.baseFontSize * 0.75, (Config.baseFontSize * 0.75) - Config.baseLineHeightMargin],
                 fillColor: bgColor,
                 stack: [
                     {
                         columns: [
                             {
                                 svg: icons[icon],
-                                width: 14,
-                                height: 14,
+                                width: Config.baseFontSize * 0.875,
+                                height: Config.baseFontSize * 0.875,
                             },
                             {
                                 ...titleOrContent,
-                                margin: node.attrs?.title ? [8, 0, 0, 12] : [8, 0, 0, 0],
+                                margin: node.attrs?.title ? [Config.baseFontSize * 0.5, 0, 0, Config.baseFontSize * 0.75] : [Config.baseFontSize * 0.5, 0, 0, 0],
                             },
                         ],
                     },

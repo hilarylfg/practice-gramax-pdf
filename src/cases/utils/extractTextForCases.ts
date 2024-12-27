@@ -1,5 +1,6 @@
 import {ASTNode} from "../../../types/ASTNode.ts";
 import {ContentText} from "pdfmake/interfaces";
+import {Config} from "../../utils/config.ts";
 
 export const extractText = (node: ASTNode): ContentText | ContentText[] => {
     if (node.type === 'text') {
@@ -17,8 +18,8 @@ export const extractText = (node: ASTNode): ContentText | ContentText[] => {
             if (mark.type === 'code') {
                 Object.assign(text, {
                     background: '#ededed',
-                    fontSize: 10,
-                    margin: [0, 10, 0, 15],
+                    fontSize: Config.baseFontSize * 0.625,
+                    margin: [0, Config.baseFontSize * 0.625, 0, Config.baseFontSize * 0.625],
                     lineHeight: 1,
                     font: 'Consolas',
                     color: '#111111'

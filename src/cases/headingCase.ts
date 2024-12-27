@@ -2,6 +2,7 @@ import {ASTNode} from '../../types/ASTNode';
 import {extractText} from "./utils/extractTextForCases.ts";
 import {ContentText} from "pdfmake/interfaces";
 import {errorCase} from "./errorCase.ts";
+import {Config} from "../utils/config.ts";
 
 export function headingCase(node: ASTNode): ContentText {
     const level = node.attrs?.level;
@@ -14,6 +15,6 @@ export function headingCase(node: ASTNode): ContentText {
         text: extractText(node),
         style: `header${level}`,
         font: 'RobotoRegular',
-        lineHeight: 1.4,
+        lineHeight: Config.baseLineHeight,
     };
 }

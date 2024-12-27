@@ -1,6 +1,7 @@
 import {ASTNode} from "../../types/ASTNode.ts";
 import {parseASTToPDFContent} from "../utils/parseAST.ts";
 import {Content, ContentTable, TableCellProperties} from "pdfmake/interfaces";
+import {Config} from "../utils/config.ts";
 
 export interface TableCell extends TableCellProperties {
     text?: string;
@@ -32,7 +33,7 @@ const parseTable = (rows: ASTNode[], parseContent = parseASTToPDFContent): Table
             const cellObject: TableCell = {
                 stack: parseContent(cell.content || []),
                 bold: isHeader,
-                margin: [6, 6, 6, 1],
+                margin: [Config.baseFontSize * 0.375, Config.baseFontSize * 0.375, Config.baseFontSize * 0.375, Config.baseFontSize * 0.0625],
             };
 
             const colspan = cell.attrs?.colspan || 1;
@@ -52,7 +53,7 @@ const parseTable = (rows: ASTNode[], parseContent = parseASTToPDFContent): Table
 
         for (let colIndex = 0; colIndex < occupiedCells[rowIndex].length; colIndex++) {
             if (!tableRow[colIndex]) {
-                tableRow[colIndex] = {text: " ", margin: [6, 6, 6, 1]};
+                tableRow[colIndex] = {text: " ", margin: [Config.baseFontSize * 0.375, Config.baseFontSize * 0.375, Config.baseFontSize * 0.375, Config.baseFontSize * 0.0625]};
             }
         }
 
@@ -67,7 +68,7 @@ export function tableCase(node: ASTNode): ContentTable {
     const maxColumns = Math.max(...body.map(row => row.length));
     const normalizedBody: TableCell[][] = body.map(row => {
         while (row.length < maxColumns) {
-            row.push({text: " ", margin: [6, 6, 6, 1]});
+            row.push({text: " ", margin: [Config.baseFontSize * 0.375, Config.baseFontSize * 0.375, Config.baseFontSize * 0.375, Config.baseFontSize * 0.0625]});
         }
         return row;
     });

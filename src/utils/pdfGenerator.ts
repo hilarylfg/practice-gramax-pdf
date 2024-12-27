@@ -3,6 +3,7 @@ import {ASTNode} from '../../types/ASTNode.ts';
 import {parseASTToPDFContent} from "./parseAST.ts";
 import {vfs} from "../fonts/vfs_fonts.ts";
 import {Content, Style} from "pdfmake/interfaces";
+import {Config} from "./config.ts";
 
 interface PDFDocDefinition {
     content: Content;
@@ -36,7 +37,7 @@ export function generatePDF(ast: ASTNode[]): void {
         header: () => {
             return {
                 text: "Название каталога",
-                fontSize: 10,
+                fontSize: Config.baseFontSize * 0.625,
                 margin: [3, 3, 0, 0]
             };
         },
@@ -44,15 +45,15 @@ export function generatePDF(ast: ASTNode[]): void {
             return {
                 text: `Страница ${currentPage} из ${pageCount}`,
                 alignment: 'center',
-                fontSize: 10,
+                fontSize: Config.baseFontSize * 0.625,
                 margin: [0, 10, 0, 0]
             };
         },
         styles: {
-            header1: {fontSize: 24},
-            header2: {fontSize: 21},
-            header3: {fontSize: 18},
-            header4: {fontSize: 14},
+            header1: {fontSize: Config.baseFontSize * 1.5},
+            header2: {fontSize: Config.baseFontSize * 1.3125},
+            header3: {fontSize: Config.baseFontSize * 1.125},
+            header4: {fontSize: Config.baseFontSize * 0.875},
         }
     };
 

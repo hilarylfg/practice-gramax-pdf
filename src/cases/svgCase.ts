@@ -8,7 +8,7 @@ export function svgCase(node: ASTNode): ContentSvg {
     if (!node.attrs?.src?.startsWith(notFoundImage) || !node.attrs?.src?.startsWith('<!doctype html>')) {
         return {
             svg: node.attrs?.src ?? notFoundImage,
-            width: 200,
+            width: 400,
             alignment: 'center',
         };
     }

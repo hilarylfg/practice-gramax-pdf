@@ -1,6 +1,7 @@
 import {ASTNode} from '../../types/ASTNode';
 import {extractText} from "./utils/extractTextForCases.ts";
 import {ContentTable} from "pdfmake/interfaces";
+import {Config} from "../utils/config.ts";
 
 export function codeBlockCase(node: ASTNode): ContentTable {
     return {
@@ -9,10 +10,10 @@ export function codeBlockCase(node: ASTNode): ContentTable {
             widths: ['*'],
             body: [[{
                 text: extractText(node),
-                fontSize: 10,
+                fontSize: Config.baseFontSize * 0.625,
                 fillColor: '#ededed',
-                margin: [20, 18, 20, 13],
-                lineHeight: 1.4,
+                margin: [Config.baseFontSize * 1.25, Config.baseFontSize * 1.25, Config.baseFontSize * 1.25, (Config.baseFontSize * 1.25) - Config.baseLineHeightMargin],
+                lineHeight: Config.baseLineHeight,
                 font: 'Consolas',
                 color: '#111111',
             }]],

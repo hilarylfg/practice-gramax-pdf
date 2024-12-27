@@ -2,15 +2,16 @@ import { ASTNode } from "../../types/ASTNode.ts";
 import { parseASTToPDFContent } from "../utils/parseAST.ts";
 import { ContentOrderedList, ContentStack, ContentUnorderedList } from "pdfmake/interfaces";
 import {errorCase} from "./errorCase.ts";
+import {Config} from "../utils/config.ts";
 
 const parseListItem = (node: ASTNode, level: number, isFirstItem: boolean): ContentOrderedList | ContentUnorderedList | ContentStack => {
     if (node.type === "bulletList" || node.type === "orderedList") {
         return parseListCase(node, level + 1);
     }
-    const marginTop = isFirstItem ? 0 : 4;
+    const marginTop = isFirstItem ? 0 : Config.baseFontSize * 0.25;
     return {
         stack: parseASTToPDFContent(node.content || [], level),
-        margin: [2 * level, marginTop, 0, 0],
+        margin: [(Config.baseFontSize * 0.125) * level, marginTop, 0, 0],
     };
 };
 

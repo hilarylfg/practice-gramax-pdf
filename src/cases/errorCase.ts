@@ -1,6 +1,7 @@
-import { ASTNode } from "../../types/ASTNode.ts";
-import { icons } from "../utils/icons.ts";
+import {ASTNode} from "../../types/ASTNode.ts";
+import {icons} from "../utils/icons.ts";
 import {ContentTable} from "pdfmake/interfaces";
+import {Config} from "../utils/config.ts";
 
 const titleErrors: { [key: string]: string } = {
     'drawio': 'диаграмма',
@@ -24,7 +25,7 @@ export function errorCase(node: ASTNode): ContentTable {
             body: [
                 [
                     {
-                        margin: [12, 12, 12, 7],
+                        margin: [Config.baseFontSize * 0.75, Config.baseFontSize * 0.75, Config.baseFontSize * 0.75, (Config.baseFontSize * 0.75) - Config.baseLineHeightMargin],
                         fillColor: "#ffebeb",
                         border: [true, true, true, true],
                         borderColor: ["#ffc7c7", "#ffc7c7", "#ffc7c7", "#ffc7c7"],
@@ -33,15 +34,16 @@ export function errorCase(node: ASTNode): ContentTable {
                                 columns: [
                                     {
                                         svg: icons.error,
-                                        width: 14,
-                                        height: 14,
+                                        width: Config.baseFontSize * 0.875,
+                                        height: Config.baseFontSize * 0.875,
                                     },
                                     {
                                         text: `Не удалось обработать компонент: ${titleErrors[node.type] || node.type}`,
-                                        lineHeight: 1.4,
+                                        lineHeight: Config.baseLineHeight,
+                                        fontSize: Config.baseFontSize * 0.75,
                                         bold: true,
                                         color: "#ba1c1c",
-                                        margin: [8, 0, 0, 0],
+                                        margin: [Config.baseFontSize * 0.5, 0, 0, 0],
                                     },
                                 ],
                             },
@@ -50,6 +52,6 @@ export function errorCase(node: ASTNode): ContentTable {
                 ],
             ],
         },
-        margin: [0, 0, 0, 8],
+        margin: [0, 0, 0, Config.baseFontSize * 0.5],
     };
 }

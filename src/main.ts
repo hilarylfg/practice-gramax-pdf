@@ -8,7 +8,7 @@ async function processAndGeneratePDF(ast: ASTNode[]): Promise<void> {
 }
 
 document.getElementById('generate-btn')?.addEventListener('click', async () => {
-    const response = await fetch('/test.json');
+    const response = await fetch('/content.json');
     const data: { content: ASTNode[] } = await response.json();
 
     processAndGeneratePDF(data.content)
